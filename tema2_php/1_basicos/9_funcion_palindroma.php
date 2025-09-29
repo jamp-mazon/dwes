@@ -1,0 +1,4 @@
+<?php
+$cadena="reconocer"
+
+?>
