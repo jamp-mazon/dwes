@@ -1,7 +1,12 @@
 <?php
+
+
 if ($_SERVER["REQUEST_METHOD"]=="POST"){//si se pulsa el submit entra si no no...
   //$nombre=$_POST["nombre"];
-  if (isset($_POST['nombre']) && $_POST["nombre"]!="" ) {//si con isset regoce nombre y el nombre no esta vacia
+  print "<pre>";
+  print_r ($_POST);
+  print "</pre>\n";
+    if (isset($_POST['nombre']) && $_POST["nombre"]!="" ) {//si con isset regoce nombre y el nombre no esta vacia
         //$nombre=$_POST["nombre"];
         $nombre=trim(htmlspecialchars(strip_tags($_POST["nombre"])));
     }
@@ -57,12 +62,25 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){//si se pulsa el submit entra si no no..
             <label for="edad">Edad:</label>
             <input type="number" id="edad" name="edad">
           </p>
-        </fieldset>
-
+            <p>
+                <input type="radio" id="sexo_masculino" name="sexo" value="M">
+                <label for="sexo_masculino">MASCULINO</label>
+                <input type="radio" id="sexo_femenino" name="sexo" value="F">
+                <label for="sexo_femenino">FEMENINO</label>
+                <input type="radio" id="sexo_otros" name="sexo" value="0">
+                <label for="sexo_otros">OTROS</label>
+            </p>
+          <p>
+            <input type="checkbox" name="aficiones[]" value="musica">Musica<br>
+            <input type="checkbox" name="aficiones[]" value="cine">Cine<br>
+            <input type="checkbox" name="aficiones[]" value="lectura">Lectura<br>
+          </p>
           <p>
             <button type="submit">Enviar</button>
             <button type="reset">Borrar</button>
           </p>
+        </fieldset>
+
     </form>
     <?php
     //Muestro datos
