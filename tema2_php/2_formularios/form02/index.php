@@ -27,6 +27,23 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){//si se pulsa el submit entra si no no..
     else{
         $edadError="No se ha indicado la edad";  
     }
+
+    //Recojo el sexo
+    if (isset($_POST["sexo"])&& $_POST["sexo"]!="") {
+      $sexo=$_POST["sexo"];
+    }
+    else{
+      $sexoError="Hay que escoger un sexo";
+    }
+
+    //Recojo las aficiones
+    if (isset($_POST["aficiones"])) {
+      $aficiones=$_POST["aficiones"];
+    }
+    else{//si el array esta vacio , lo creo vacio.
+      $aficiones=[];
+    }
+    
 }    
 ?>
 <!DOCTYPE html>
@@ -87,8 +104,11 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){//si se pulsa el submit entra si no no..
     if (isset($nombreError)){//el isset sirve para saber si existe contenido o no dentro o bien de la variable o de un array concreto
       print "<p class='error'>$nombreError</p>";
     }
-    if (isset($nombreError)){
+    if (isset($edadError)){
       print "<p class='error'>$edadError</p>";
+    }
+    if (isset($sexoError)) {
+      print "<p class='error'>$sexoError</p>";
     }    
     ?>
 
@@ -99,6 +119,13 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){//si se pulsa el submit entra si no no..
       if (isset($nombre) && isset($edad)) {
         print "- Nombre: $nombre <br>";
         print "- Edad: $edad <br>";
+        echo ("- Sexo: $sexo <br>");
+        echo("-Aficiones:");
+        echo ("<ul>");
+        foreach ($aficiones as $aficion) {
+          echo ("<li>$aficion</li>");
+        }
+        echo ("</ul>");
       }
 
     ?>
