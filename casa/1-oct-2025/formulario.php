@@ -1,22 +1,25 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"]=="POST") {
-    if (isset($_POST["nombre"]) && isset($_POST["nombre"]!="")) {
+
+    if (isset($_POST["nombre"]) && $_POST["nombre"]!="") {
         $nombre=trim(htmlspecialchars(strip_tags($_POST["nombre"])));
     }
     else{
         $nombreError="Nombre incorrecto , pruebe con otro nombre.";
     }
-    if(isset($_POST["apellidos"]) && isset($_POST["apellidos"]!="")){
+    if(isset($_POST["apellidos"]) && $_POST["apellidos"]!=""){
         $apellidos=trim(htmlspecialchars(strip_tags($_POST["apellidos"])));
     }
     else{
-        $edadError="formato de apellidos incorrecto, pruebe de otra forma"
+        $edadError="formato de apellidos incorrecto, pruebe de otra forma";
     }
     if (isset($_POST["email"]) && filter_var($email,FILTER_VALIDATE_EMAIL)) {
         $email=trim(htmlspecialchars(strip_tags($_POST["email"])));
 
-    } else {
-        $emailError="Email incorrecto"
+    }
+     
+    else {
+        $emailError="Email incorrecto";
     }
     
 } else {
@@ -25,9 +28,6 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
 
 
 ?>
-
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
