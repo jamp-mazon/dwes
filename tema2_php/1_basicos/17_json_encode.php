@@ -36,5 +36,5 @@ $persona1=new Persona("Juan","Marcos Rubio");
 
 //COnvertir el objeto a JSON
 $json=json_encode($persona1);
-echo $json;
+echo $json; 
 ?>
