@@ -1,4 +1,5 @@
 <?php
+include_once("modelo/usuario.php");
 //######## FUNCION RECOGER
 //Recoge los datos de los formularios y los depura para no meter código malicioso
 //Esta finción no comprueba errores.
@@ -21,7 +22,16 @@ function recoge($var)
 //ENTRADA: el email y el password 
 //SALIDA: objeto usario con sus datos en caso de existo y null en caso de error.
 
-function checkuser($email, $password)
-{
-    
+function checkuser($email, $password){
+    $lista_usuarios=[];
+    $file="bbdd/data.json";
+    $jsonData=file_get_contents($file,FILE_USE_INCLUDE_PATH);
+    $lista_usuarios=json_decode($jsonData);
+    foreach ($lista_usuarios as  $user) {
+        if ($user->email===$email && password_verify($password,$user->password)) {
+            $usuario=new Usuario($user->nombre,$user->email,$user->password);
+            return $usuario;
+        }
+    }
+    return null;
 }

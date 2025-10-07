@@ -20,7 +20,7 @@
 
             <label for="nombre">Nombre</label>
             <input type="text" id="nombre" name="nombre" required>
-
+            
             <label for="email">Correo electrónico</label>
             <input type="text" id="email" name="email" required>
 
