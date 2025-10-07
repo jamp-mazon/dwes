@@ -19,8 +19,19 @@ else{
         header("Location: alta.php?mensaje=$mensaje");
         die;
     }
+   // ALUMNO:comprobar si el email ya existe.
+    $lista_usuarios=[];//creo el array vacio
+    $jsonData=file_get_contents("bbdd/data.json",FILE_USE_INCLUDE_PATH);//cojo los datos del json
+    $lista_usuarios=json_decode($jsonData);//meto los datos del json en el array
+    foreach ($lista_usuarios as $usuario) {//recorro con un fore los usuarios
+        if (isset($usuario["email"]) && $usuario["email"]===$email) {//si existe ese usuario o si el usuario con su email es igual al que ya tengo 
+            $mensaje="ERROR:el email ya existe...";
+            header("Location:alta.php?mensaje=$mensaje");
+            die;            
+        }
+    }        
 
-    //ALUMNO:comprobar si el email ya existe.
+
 
     //Validar Password
     //ojo,"000"="00000000" -->TRUE
