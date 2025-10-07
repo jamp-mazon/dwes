@@ -3,5 +3,10 @@
         "nombre": "PRUEBA",
         "email": "PRUEBA",
         "password": "PRUEBA"
+    },
+    {
+        "nombre": "jose",
+        "email": "jose@kk.com",
+        "password": "$2y$10$zCNXfJ8NvC.K1mHCsvvMyOLPNb1ilHZp47mHMvjDur.oMgWTiQ1HS"
     }
 ]
