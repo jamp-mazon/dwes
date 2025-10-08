@@ -145,35 +145,6 @@ footer {
       border-radius: 12px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       width: 400px;
-      margin: auto;
-    }
-
-    .formulario h2 {
-      text-align: center;
-      margin-top: 0px;
-      margin-bottom: 30px;
-      color: #333;
-    }
-
-    .formulario label {
-      display: block;
-      margin-bottom: 6px;
-      font-weight: bold;
-      color: #555;
-    }
-
-    .formulario input {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-    }
-
-    .formulario input:focus {
-      border-color: #007BFF;
-      outline: none;
-      box-shadow: 0 0 5px rgba(0,123,255,0.3);
     }
 
     .formulario button {
