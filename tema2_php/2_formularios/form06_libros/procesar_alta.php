@@ -42,6 +42,12 @@ if ($_SERVER["REQUEST_METHOD"]!="POST") {
         header("Location:alta.php");
         die;
     }
+    if (isset($_POST[""])) {
+        # code...
+    } else {
+        # code...
+    }
+    
     
 }
 

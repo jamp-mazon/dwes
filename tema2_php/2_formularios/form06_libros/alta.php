@@ -15,7 +15,7 @@
         ?>
     </header>
     <main>
-        <form class="formulario" action="procesar_alta.php" method="POST">
+        <form class="formulario" action="procesar_alta.php" method="POST" enctype="multipart/form-data"> <!--Importante si no no coge el array de la imagen -->
 
             <label for="titulo">Titulo</label>
             <input type="text" id="titulo" name="titulo" required><br>
@@ -36,7 +36,7 @@
             <hr>
             <legend>Subida de Caratula</legend>
             <p>Tamaño maximo de 1 MB
-                <input type="file" name="fichero">
+                <input type="file" name="imagen">
             </p>
             <p><button type="submit" name="submit" value="subirimagen">Guardar libro</button></p>
 
