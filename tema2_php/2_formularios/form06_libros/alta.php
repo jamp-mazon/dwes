@@ -36,7 +36,7 @@
             <hr>
             <legend>Subida de Caratula</legend>
             <p>Tamaño maximo de 1 MB
-                <input type="file" name="imagen">
+                <input type="file" name="caratula">
             </p>
             <p><button type="submit" name="submit" value="subirimagen">Guardar libro</button></p>
 
