@@ -86,7 +86,8 @@ if ($_SERVER["REQUEST_METHOD"]!="POST") {
 
     //Despues de las comprobaciones si todo ha ido bien me creo el libro
     if ($caratulaOK) {
-        echo "caratula OK";
+        echo "caratula OK <br>";
+        echo $caratula;
     }
     else{
         echo "caratula incorrecta <br>";
@@ -95,11 +96,14 @@ if ($_SERVER["REQUEST_METHOD"]!="POST") {
         //si todo es correcto me creo el libro con las variables cogidas en el post
         $bbdd_libros=[];
         $nuevo_libro=new Libro($titulo,$autor,$anio,$generos,$caratula);
-        $bbdd_json=file_get_contents("bbdd/json.data",FILE_USE_INCLUDE_PATH);
-        $bbdd_libros=json_decode($bbdd_json,true);
+        $bbdd_json=file_get_contents("bbdd/data.json",FILE_USE_INCLUDE_PATH);
+        $bbdd_libros=json_decode($bbdd_json);
+        echo "<hr>";
+
+
         array_push($bbdd_libros,$nuevo_libro);
         $bbdd_json=json_encode($bbdd_libros,JSON_UNESCAPED_UNICODE |JSON_PRETTY_PRINT);
-        file_put_contents("bbdd/json.data",$bbdd_json);//sobreescribe el archivo con los nuevos cambios
+        file_put_contents("bbdd/data.json",$bbdd_json);//sobreescribe el archivo con los nuevos cambios
         $mensaje="ALTA CORRECTO";
         header("Location: alta.php?mensaje=$mensaje");
         die;
