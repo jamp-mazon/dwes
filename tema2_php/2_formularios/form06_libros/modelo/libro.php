@@ -9,7 +9,7 @@ class Libro implements JsonSerializable{
     private $caratula;
 
 
-    public function __construct(string $titulo,string $autor,int $anio,string $generos,string $caratula){
+    public function __construct(string $titulo,string $autor,int $anio, $generos,$caratula){
         $this->titulo=$titulo;
         $this->autor=$autor;
         $this->anio=$anio;

@@ -1,9 +1,12 @@
 [
     {
-        "titulo": "quijote",
-        "autor": "cervantes",
-        "anio": 1,
-        "generos": "1",
-        "caratula": "diablo.png"
+        "titulo": "Por Pepe",
+        "autor": "Pedro Lopez",
+        "anio": 2024,
+        "generos": [
+            "ciencia-ficcion",
+            "historico"
+        ],
+        "caratula": "hombre.png"
     }
 ]

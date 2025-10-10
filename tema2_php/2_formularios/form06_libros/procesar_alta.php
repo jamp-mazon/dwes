@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"]!="POST") {
 
     }
     if (isset($_POST["anio"]) && $_POST["anio"]!="") {
-        $anio=trim(htmlspecialchars(is_numeric($_POST["anio"])));
+        $anio=trim(htmlspecialchars(($_POST["anio"])));
         $anioOk=true;
     } else {
         $mensajeError="ERROR: año incorrecto";
@@ -47,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"]!="POST") {
         die;
     }
     if (isset($_POST["generos"])&& $_POST["generos"]!=[]) {
-        $generos=trim(htmlspecialchars(is_array($_POST["generos"])));
+        $generos=($_POST["generos"]);
         $generosOK=true;
     }
     else{
