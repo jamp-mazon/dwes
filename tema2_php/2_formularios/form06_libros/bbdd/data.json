@@ -8,5 +8,15 @@
             "historico"
         ],
         "caratula": "hombre.png"
+    },
+    {
+        "titulo": "Come on!",
+        "autor": "Jose Mazon",
+        "anio": 1993,
+        "generos": [
+            "policiaco",
+            "Fantasia"
+        ],
+        "caratula": "diablo.png"
     }
 ]
