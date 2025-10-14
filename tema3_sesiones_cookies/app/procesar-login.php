@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 $usuario_valido = "admin";
 $clave_valida = "1234";
 
@@ -14,7 +14,9 @@ $clave=$_POST["clave"]?? "";
 //tratamos recordar
 $recordar=isset($_POST["recordar"]);
 
-if ($usuario==$usuario_valido && $clave === $clave_valida){
+if ($usuario===$usuario_valido && $clave === $clave_valida){
+
+    $_SESSION["usuario"]=$usuario;
     if ($recordar) {
         setcookie("usuario",$usuario,time()+ (7*24*60*60), "/");
     }

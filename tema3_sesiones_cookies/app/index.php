@@ -1,4 +1,11 @@
 <?php
+session_start();
+if (isset($_SESSION["usuario"])) {
+    //si existe , es porque nos hemos logueado , correctamente
+    header("Location:bienvenida.php");
+    die;//exit();
+}
+
 $nombre_guardado=$_COOKIE["usuario"]?? "";
 
 // if (isset($_COOKIE["usuario"])) { esto y lo de arriba es lo mismo
