@@ -22,4 +22,11 @@
         }
         return null;
     }
+    function lista_usuarios($var){
+        $ruta="bbdd/data.json";
+        $bbdd_json=file_get_contents($ruta,DEFAULT_INCLUDE_PATH);//cojo los datos del json
+        $bbdd_usuarios=json_decode($bbdd_json);//cojo los usuarios del json.
+        return $bbdd_usuarios;
+    }
+    
 ?>

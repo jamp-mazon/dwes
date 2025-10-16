@@ -83,10 +83,14 @@
         }
         if ($todoOK) {
             $usuario=new Usuario($nick,$email,$password1,$genero,$aficiones);
-            if (!is_null($usuario)) {
+            if (is_null($usuario)) {
+                $_SESSION["errores"]["usuario"]="Usuario incorrecto";
+                header("Location:registrarse.php");
+                die;
+            }
                 $_SESSION["usuario"]=$usuario;
                 $_SESSION["mensajes"]["usuario"]="Usuario creado correctamente";
-            }
+                
             //Implementar el guardado en el json.... y despues de comprobar que se guardan controlar email y nick.
         }        
 
