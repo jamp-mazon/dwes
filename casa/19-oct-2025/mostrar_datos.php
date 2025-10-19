@@ -1,9 +1,13 @@
 <?php
 session_start();
+  print("<pre>");
+  print_r($_SESSION);
+  print("</pre>");
 $nombre=$_SESSION["nombre"];
 $edad=$_SESSION["edad"];
 
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
