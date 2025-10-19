@@ -1,0 +1,24 @@
+[
+    {
+        "nombre": "José Antonio",
+        "email": "mazon_93@hotmail.com",
+        "edad": "25",
+        "password": "$2y$10$b5FU\/LTKhyuHOR86OhPheOs4INLvMohcskKcpAMKl6ouYy0l8uMUG",
+        "generos": [
+            "comedia",
+            "animacion"
+        ],
+        "sexo": "V"
+    },
+    {
+        "nombre": "Francisco",
+        "email": "paco@kk.com",
+        "edad": "78",
+        "password": "$2y$10$DkcJ29K1rrfq6EkbkvpPUOvZPb..bDJheulv3fqgLyfGF3w8IuJMu",
+        "generos": [
+            "comedia",
+            "sci"
+        ],
+        "sexo": "V"
+    }
+]
