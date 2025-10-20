@@ -5,7 +5,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //si vengo del submit
   //print("<pre>");
   //print_r($_SESSION);
   //print("</pre>");
-  $todoOK = true; // <-- inicializar a true y invalidar cuando hay errores
+  $todoOK = true; // <-- inicializar a true e invalidar cuando hay errores
 
   //Comprobacion del nombre
   if (!empty($_POST["nombre"])) {
