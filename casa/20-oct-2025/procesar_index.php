@@ -61,6 +61,7 @@ include_once "includes/Usuario.php";
         }
         if (isset($_POST["sexo"])) {
             $sexo=$_POST["sexo"];
+            $_SESSION["sexo"]=$sexo;
         }
         else{
             $todoOK=false;
@@ -68,6 +69,7 @@ include_once "includes/Usuario.php";
         }
         if (isset($_POST["categorias"])) {
             $categorias=$_POST["categorias"];
+            $_SESSION["categorias"]=$categorias;
         }
         else{
             $todoOK=false;
