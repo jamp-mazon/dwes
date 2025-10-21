@@ -19,6 +19,16 @@ function obtener_usuarios(){
     $ruta="bbdd/usuarios.json";
     $user_json=file_get_contents($ruta,FILE_USE_INCLUDE_PATH);
     $lista_user=json_decode($user_json);
+    return $lista_user;
+}
+function validar_usuario($email,$password){
+    $lista_user=obtener_usuarios();
+    foreach ($lista_user as  $usuario) {
+        if ($usuario->email===$email && password_verify($password,$usuario->password)) {
+            return $usuario;
+        }
+    }
+    return null;
 }
 
 ?>

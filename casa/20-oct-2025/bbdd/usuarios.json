@@ -1,13 +1,15 @@
 [
     {
-        "nick": "manolo",
-        "email": null,
+        "nick": "francisco",
+        "email": "francisco@kk.com",
         "genero": "m",
         "categorias": [
             "accion",
-            "comedia"
+            "comedia",
+            "drama"
         ],
-        "imagen_perfil": "WhatsApp Image 2025-10-20 at 13.49.13 (1).jpeg",
-        "esAdmin": false
+        "imagen_perfil": "ChatGPT Image Oct 5, 2025, 07_31_35 PM.png",
+        "esAdmin": false,
+        "password": "$2y$10$QTjLuHSUbP0MIbFmSjstau6m86cJ0SrY2vTqHQme43AfebMq7GJ.2"
     }
 ]

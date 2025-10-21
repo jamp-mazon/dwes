@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -19,7 +22,7 @@
             <h2>Iniciar sesión</h2>
 
             <label>Email
-                <input type="email" name="email" placeholder="tucorreo@ejemplo.com">
+                <input type="email" name="email" placeholder="tucorreo@ejemplo.com" value="<?php echo ($_COOKIE["email"])?? "" ?>">
             </label>
 
             <label>Contraseña

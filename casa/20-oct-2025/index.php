@@ -33,7 +33,7 @@
                 <input type="text" name="nick" placeholder="Tu nick" value="<?php echo $_SESSION["nick"]??  "";?>">
             </label>
             <label>Email
-                <input type="text" name="email" placeholder="tucorreo@ejemplo.com" value="<?php echo $_SESSION["email"]?? ""; ?>">
+                <input type="email" name="email" placeholder="tucorreo@ejemplo.com" value="<?php echo $_SESSION["email"]?? ""; ?>">
             </label>
             <label>Contraseña
                 <input type="password" name="password1" placeholder="***********">
@@ -45,9 +45,9 @@
 
             <fieldset class="inline">
                 <legend>Sexo</legend>
-                <label><input type="radio" name="sexo" value="m"> Masculino <?php echo $sexo = (isset($_SESSION["sexo"]) && $_SESSION["sexo"]==="m") ? "checked" : "" ;?> </label>
-                <label><input type="radio" name="sexo" value="f"> Femenino <?php echo $sexo = (isset($_SESSION["sexo"]) && $_SESSION["sexo"]==="f") ? "checked" : "" ;?></label>
-                <label><input type="radio" name="sexo" value="o"> Otro <?php echo $sexo = (isset($_SESSION["sexo"]) && $_SESSION["sexo"]==="o") ? "checked" : "" ;?></label>
+                <label><input type="radio" name="sexo" value="m" <?php echo (isset($_SESSION["sexo"]) && $_SESSION["sexo"]==="m") ? "checked" : "" ;?>> Masculino</label>
+                <label><input type="radio" name="sexo" value="f" <?php echo (isset($_SESSION["sexo"]) && $_SESSION["sexo"]==="f") ? "checked" : "" ;?>> Femenino</label>
+                <label><input type="radio" name="sexo" value="o" <?php echo (isset($_SESSION["sexo"]) && $_SESSION["sexo"]==="o") ? "checked" : "" ;?>> Otro</label>
             </fieldset>
 
             <fieldset class="inline">

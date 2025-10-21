@@ -12,7 +12,7 @@
     public function __construct($nick,$email,$password,$genero,$categorias,$imagen_perfil,$esAdmin)
     {
         $this->nick=$nick;
-        $this->$email=$email;
+        $this->email=$email;
         $this->password=password_hash($password,PASSWORD_DEFAULT);
         $this->genero=$genero;
         $this->categorias=$categorias;
@@ -79,7 +79,8 @@
             "genero"=>$this->genero,
             "categorias"=>$this->categorias,
             "imagen_perfil"=>$this->imagen_perfil,
-            "esAdmin"=>$this->esAdmin
+            "esAdmin"=>$this->esAdmin,
+            "password"=>$this->password
         ];
     }
 
@@ -89,6 +90,9 @@
     public function getEsAdmin()
     {
         return $this->esAdmin;
+    }
+    public function getPassword(){
+        return $this->password;
     }
  }
 
