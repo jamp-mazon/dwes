@@ -1,3 +1,13 @@
 [
-    
+    {
+        "nick": "manolo",
+        "email": null,
+        "genero": "m",
+        "categorias": [
+            "accion",
+            "comedia"
+        ],
+        "imagen_perfil": "WhatsApp Image 2025-10-20 at 13.49.13 (1).jpeg",
+        "esAdmin": false
+    }
 ]

@@ -14,4 +14,11 @@ function generarIdPersistente() {
     $contador++;
     return $contador;
 }
+function obtener_usuarios(){
+    $lista_user=[];
+    $ruta="bbdd/usuarios.json";
+    $user_json=file_get_contents($ruta,FILE_USE_INCLUDE_PATH);
+    $lista_user=json_decode($user_json);
+}
+
 ?>
