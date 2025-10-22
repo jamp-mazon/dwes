@@ -30,5 +30,14 @@ function validar_usuario($email,$password){
     }
     return null;
 }
+function devolverUsuario($email){
+    $lista_user=obtener_usuarios();
+    foreach ($lista_user as $user) {
+        if ($user->email ===$email) {
+            return $user;
+        }
+    }
+    return null;
+}
 
 ?>

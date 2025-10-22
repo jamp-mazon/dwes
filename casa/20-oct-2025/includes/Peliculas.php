@@ -1,4 +1,5 @@
 <?php
+include_once "funciones/utilidades.php";
 class Pelicula implements JsonSerializable{
 
     private $id;

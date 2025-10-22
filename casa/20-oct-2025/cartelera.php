@@ -1,3 +1,14 @@
+<?php
+session_start();
+include_once "funciones/utilidades.php";
+// print("<pre>");
+// print_r($_SESSION);
+// print("</pre>");  
+// print("<hr>");
+// print("<pre>");
+// print_r($_SESSION["usuario"]->email);
+// print("</pre>");
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -12,11 +23,11 @@
     <header class="hdr">
         <h1>Cartelera</h1>
         <nav>
-            <a href="index.html" class="btn-sec">Inicio</a>
-            <!-- <?php if ($esAdmin): ?> -->
-            <a href="admin_cartelera.html" class="btn">Administrar cartelera</a>
+            <a href="index.php" class="btn-sec">Inicio</a>
+            <!-- <?php if ($_SESSION["usuario"]->esAdmin): ?> -->
+            <a href="admin_cartelera.php" class="btn">Administrar cartelera</a>
             <!-- <?php endif; ?> -->
-            <a href="#" class="btn-sec">Salir</a>
+            <a href="logOut.php" class="btn-sec">Salir</a>
         </nav>
     </header>
 

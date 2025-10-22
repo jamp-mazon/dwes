@@ -20,6 +20,11 @@ else{
         }
        if (validar_usuario($email,$password)) {
             $_SESSION["loginOK"]=true;
+            $user=devolverUsuario($email);
+            if (!is_null($user) && $user->esAdmin===true) {
+                $_SESSION["esAdmin"]=true;
+                $_SESSION["usuario"]=$user;
+            }
             header("Location:cartelera.php");
             die;
         }

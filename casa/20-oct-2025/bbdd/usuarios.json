@@ -9,7 +9,32 @@
             "drama"
         ],
         "imagen_perfil": "ChatGPT Image Oct 5, 2025, 07_31_35 PM.png",
-        "esAdmin": false,
+        "esAdmin": true,
         "password": "$2y$10$QTjLuHSUbP0MIbFmSjstau6m86cJ0SrY2vTqHQme43AfebMq7GJ.2"
+    },
+    {
+        "nick": "Paca",
+        "email": "paca@kk.com",
+        "genero": "f",
+        "categorias": [
+            "comedia",
+            "drama",
+            "animacion"
+        ],
+        "imagen_perfil": "pexels-teodorapopa-15502152.jpg",
+        "esAdmin": false,
+        "password": "$2y$10$RM356Ma3onzbfs81yPpWVedC57V18MhABzWXrXvfNI\/d2h7k9R8RO"
+    },
+    {
+        "nick": "Eustaquio",
+        "email": "eustaquio@kk.com",
+        "genero": "m",
+        "categorias": [
+            "accion",
+            "terror"
+        ],
+        "imagen_perfil": "pexels-brett-sayles-3256033.jpg",
+        "esAdmin": false,
+        "password": "$2y$10$x4NGcm8CGLpeY3ejSLuBBu5giY2dR\/gsph9NgkhZzrAcCKAWssQ2W"
     }
 ]

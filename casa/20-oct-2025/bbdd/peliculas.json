@@ -1,3 +1,10 @@
 [
-    
+    {
+        "id": 1,
+        "titulo": "Prueba Piloto",
+        "duracion": "120",
+        "categoria": "Acción",
+        "sinopsis": "ihdfaihdaihdbashidashidb",
+        "poster": "pexels-teodorapopa-15502152.jpg"
+    }
 ]
