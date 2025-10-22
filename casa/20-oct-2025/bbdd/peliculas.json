@@ -1,11 +1,11 @@
 [
     {
         "id": 1,
-        "titulo": "Prueba Piloto",
+        "titulo": "El señor de los anillos",
         "duracion": "120",
         "categoria": "Acción",
         "sinopsis": "ihdfaihdaihdbashidashidb",
-        "poster": "pexels-teodorapopa-15502152.jpg"
+        "poster": "frodo.jpg"
     },
     {
         "id": 2,
@@ -13,6 +13,6 @@
         "duracion": "120",
         "categoria": "Acción",
         "sinopsis": "ihdfaihdaihdbashidashidb",
-        "poster": "pexels-teodorapopa-15502152.jpg"
+        "poster": "frodo.jpg"
     }
 ]
