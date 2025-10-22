@@ -1,9 +1,9 @@
 <?php
 session_start();
 include_once "includes/Peliculas.php";
-print("<pre>");
-print_r($_SESSION);
-print("</pre>");  
+// print("<pre>");
+// print_r($_SESSION);
+// print("</pre>");  
 
     if ($_SESSION["loginOK"] && $_SESSION["esAdmin"]) {
 

@@ -39,5 +39,13 @@ function devolverUsuario($email){
     }
     return null;
 }
+function obtener_peliculas(){
+    $lista_peliculas=[];
+    $ruta_bbdd="bbdd/peliculas.json";
+    $peli_json=file_get_contents($ruta_bbdd,FILE_USE_INCLUDE_PATH);
+    $lista_peliculas=json_decode($peli_json);
+    return $lista_peliculas;
+}
+
 
 ?>

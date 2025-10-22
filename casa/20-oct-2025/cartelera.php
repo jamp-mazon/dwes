@@ -8,6 +8,9 @@ include_once "funciones/utilidades.php";
 // print("<pre>");
 // print_r($_SESSION["usuario"]->email);
 // print("</pre>");
+$lista_peliculas=obtener_peliculas();
+$ruta_imagen="assets/images/imagenes_peliculas";
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -33,26 +36,29 @@ include_once "funciones/utilidades.php";
 
     <main class="container grid">
         <!-- Aquí iterarás con PHP tu JSON de películas: foreach { … } -->
+         <?php foreach ($lista_peliculas as $pelicula): ?>
         <!-- Tarjeta de ejemplo (duplicar con foreach) -->
         <article class="movie-card">
             <div class="movie-img">
-                <img src="https://placehold.co/600x900" alt="Título de la película">
+                <img src="<?=$ruta_imagen.$pelicula->poster?>" alt="Título de la película">
             </div>
             <div class="movie-body">
-                <h2 class="movie-title">Título de la película</h2>
+                <h2 class="movie-title"><?=$pelicula->titulo?></h2>
                 <p class="movie-meta">
-                    <span>2024</span> ·
-                    <span>Ciencia ficción</span> ·
-                    <span>120 min</span>
+                <?php foreach ($pelicula->categoria as $valor):?>    
+                    <span><?=$valor?></span>
+                <?php endforeach; ?>     ·
+                    <span><?=$pelicula->duracion?>min</span>
                 </p>
                 <p class="movie-desc">
-                    Sinopsis breve de la película para mostrar una descripción corta.
+                    <?=$pelicula->sinopsis?>
                 </p>
                 <div class="movie-actions">
                     <a class="btn" href="#">Acceder</a>
                 </div>
             </div>
         </article>
+        <?php endforeach; ?>
         <!-- /fin ejemplo -->
     </main>
 </body>

@@ -80,7 +80,7 @@ include_once "includes/Usuario.php";
             $_SESSION["errores"][]="La imagen es demasiado pesada";
         }
         else{
-            $ruta_imagen="assets/images/";//guardo la ruta de destino de la imagen
+            $ruta_imagen="assets/images/imagenes_usuario";//guardo la ruta de destino de la imagen
             $imagen=$_FILES["avatar"]["name"];//me guardo el nombre de la imagen
             $mover_imagen=move_uploaded_file($_FILES["avatar"]["tmp_name"],$ruta_imagen.$imagen);//muevo del origen al destino
             if (!$mover_imagen) {
