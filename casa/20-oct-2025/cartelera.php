@@ -9,7 +9,7 @@ include_once "funciones/utilidades.php";
 // print_r($_SESSION["usuario"]->email);
 // print("</pre>");
 $lista_peliculas=obtener_peliculas();
-$ruta_imagen="assets/images/imagenes_peliculas";
+$ruta_imagen="assets/images/imagenes_peliculas/";
 
 ?>
 <!DOCTYPE html>
@@ -44,10 +44,8 @@ $ruta_imagen="assets/images/imagenes_peliculas";
             </div>
             <div class="movie-body">
                 <h2 class="movie-title"><?=$pelicula->titulo?></h2>
-                <p class="movie-meta">
-                <?php foreach ($pelicula->categoria as $valor):?>    
-                    <span><?=$valor?></span>
-                <?php endforeach; ?>     ·
+                <p class="movie-meta">    
+                    <span><?=$pelicula->categoria?></span>
                     <span><?=$pelicula->duracion?>min</span>
                 </p>
                 <p class="movie-desc">
