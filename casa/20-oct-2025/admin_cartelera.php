@@ -88,6 +88,7 @@ include_once "includes/Peliculas.php";
                                 array_push($lista_peliculas,$nueva_pelicula);
                                 $peliculas_json=json_encode($lista_peliculas,JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT);
                                 file_put_contents($ruta_bbdd,$peliculas_json);
+                                
                             }
                         }
                         else{

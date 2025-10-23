@@ -285,7 +285,7 @@ select {
 /* layout imagen + info */
 .contenedor-externo {
   display: flex;
-  gap: 18px;
+  gap: 5px;
   align-items: flex-start; /* o center según prefieras */
   flex-wrap: wrap; /* evita desbordes en pantallas pequeñas */
 }
