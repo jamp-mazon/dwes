@@ -4,15 +4,15 @@
         "titulo": "El señor de los anillos",
         "duracion": "120",
         "categoria": "Acción",
-        "sinopsis": "ihdfaihdaihdbashidashidb",
+        "sinopsis": "Un mediano roba un anillo a otro mediano y su sobrino tiene que pasar un infierno para ir a destruirlo porque si no se acaba el mundo",
         "poster": "frodo.jpg"
     },
     {
         "id": 2,
-        "titulo": "Prueba Piloto",
-        "duracion": "120",
-        "categoria": "Acción",
-        "sinopsis": "ihdfaihdaihdbashidashidb",
-        "poster": "frodo.jpg"
+        "titulo": "Origen",
+        "duracion": "200",
+        "categoria": "Drama",
+        "sinopsis": "Una empresa contrata a un equipo de expertos en sueños para que un chico que va a heredar una fortuna y la empresa familiar decida no hacerlo implantandole una idea en la cabeza a traves de un sueño",
+        "poster": "origen.png"
     }
 ]

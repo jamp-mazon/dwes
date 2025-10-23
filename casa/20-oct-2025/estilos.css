@@ -8,6 +8,7 @@
     --muted: #9aa3b2;
     --text: #f7f8fc;
     --primary: #5b8cff;
+    --delete: #b81414;
     --primary-700: #3d6df0;
     --radius: 14px;
 }
@@ -93,7 +94,17 @@ fieldset.inline label {
     cursor: pointer;
     transition: .15s;
     text-decoration: none;
-    display: inline-block;
+}
+.btn-borrar {
+    background-color: #b81414;
+    color: #fff;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 999px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: .15s;
+    text-decoration: none;
 }
 
 .btn:hover {
@@ -137,7 +148,8 @@ fieldset.inline label {
 .movie-img img {
     width: 100%;
     height: 320px;
-    object-fit: cover;
+    object-fit:contain;
+    
     display: block;
 }
 
@@ -168,6 +180,14 @@ fieldset.inline label {
 }
 .movie-actions {
     margin-top: 10px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+.movie-actions form {
+    display: inline-flex;
+    margin: 0;
+    align-items: center;
 }
 
 /* Admin */
@@ -261,4 +281,30 @@ select {
 }
 .error{
     color: red;
+}
+/* layout imagen + info */
+.contenedor-externo {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start; /* o center según prefieras */
+  flex-wrap: wrap; /* evita desbordes en pantallas pequeñas */
+}
+
+.contenedor-poster {
+  flex: 0 0 220px; /* ancho fijo de la columna imagen */
+  display: block;
+}
+
+.contenedor-poster img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.contenedor-info {
+  flex: 1 1 0;
+  display: block;
+  min-width: 200px;
 }

@@ -46,6 +46,40 @@ function obtener_peliculas(){
     $lista_peliculas=json_decode($peli_json);
     return $lista_peliculas;
 }
+function devolverPelicula($titulo){
+    $lista_peliculas=obtener_peliculas();
+    foreach ($lista_peliculas as $pelicula) {
+        if ($pelicula->titulo===$titulo) {
+            return $pelicula;
+        }
+    }
+    return null;
+}
+function borrarPelicula($titulo){
+    $lista_peliculas=obtener_peliculas();
+    $nueva_lista_peliculas=[];
+    $pelicula_a_borrar=null;
+    foreach ($lista_peliculas as $pelicula) {
+        if ($pelicula->titulo===$titulo) {
+            $pelicula_a_borrar=$pelicula;
+            break;
+        }
+    }
+    if (is_null($pelicula_a_borrar)) {
+        return false;
+    }
+    else{
+        foreach ($lista_peliculas as $pelicula) {
+            if ($pelicula_a_borrar->titulo!==$pelicula->titulo) {
+                array_push($nueva_lista_peliculas,$pelicula);
+            }
+        }
+        $ruta_bbdd="bbdd/peliculas.json";
+        $peli_json=json_encode($nueva_lista_peliculas,JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+        file_put_contents($ruta_bbdd,$peli_json);
+        return true;
+    }
+}
 
 
 ?>

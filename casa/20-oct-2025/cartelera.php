@@ -51,8 +51,15 @@ $ruta_imagen="assets/images/imagenes_peliculas/";
                 <p class="movie-desc">
                     <?=$pelicula->sinopsis?>
                 </p>
-                <div class="movie-actions">
-                    <a class="btn" href="#">Acceder</a>
+                <div class="movie-actions ">
+                    <a class="btn" href="butaca.php">Acceder</a>
+                    <a class="btn" href="procesar_info.php?titulo=<?=$pelicula->titulo?>">Mas info</a>
+                    <?php if (isset($_SESSION['usuario']) && isset($_SESSION['usuario']->esAdmin) && $_SESSION['usuario']->esAdmin): ?>
+                    <form action="procesar_borrar.php" method="post">
+                        <input type="hidden" name="titulo" value="<?=$pelicula->titulo?>">
+                        <button style="cursor: pointer; border-radius:15px; border:none; width:80px; height:30px;margin-top: 10px;margin-left:10px; background-color: #b81414;color:antiquewhite" type="submit">Borrar</button>
+                    </form>
+                    <?php endif; ?>
                 </div>
             </div>
         </article>
