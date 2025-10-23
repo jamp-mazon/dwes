@@ -29,8 +29,12 @@ $pelicula=devolverPelicula($titulo);
             <h1>Titulo:<?=$pelicula->titulo?></h1>
             <p>Duracion:<?=$pelicula->duracion ?></p>
             <p>Sinopsis:<?=$pelicula->sinopsis?></p>
+            <a href="cartelera.php"> 
+            <button class="btn">Volver</button></a>    
             </div>
+           
         </div>
+        
     </main>
 </body>
 </html>

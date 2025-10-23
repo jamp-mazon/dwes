@@ -10,6 +10,9 @@ include_once "funciones/utilidades.php";
 // print("</pre>");
 $lista_peliculas=obtener_peliculas();
 $ruta_imagen="assets/images/imagenes_peliculas/";
+if (condition) {
+    # code...
+}
 
 ?>
 <!DOCTYPE html>
@@ -57,8 +60,11 @@ $ruta_imagen="assets/images/imagenes_peliculas/";
                     <?php if (isset($_SESSION['usuario']) && isset($_SESSION['usuario']->esAdmin) && $_SESSION['usuario']->esAdmin): ?>
                     <form action="procesar_borrar.php" method="post">
                         <input type="hidden" name="titulo" value="<?=$pelicula->titulo?>">
-                        <button style="cursor: pointer; border-radius:15px; border:none; width:80px; height:30px;margin-top: 10px;margin-left:10px; background-color: #b81414;color:antiquewhite" type="submit">Borrar</button>
+                        <button style="cursor: pointer; border-radius:15px; border:none; width:100px; height:40px;margin-top: 10px;margin-left:10px; background-color: #b81414;color:antiquewhite" type="submit">Borrar</button>
                     </form>
+                    <?php 
+                        
+                    ?>
                     <?php endif; ?>
                 </div>
             </div>
