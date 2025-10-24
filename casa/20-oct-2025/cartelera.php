@@ -34,7 +34,6 @@ unset($_SESSION["mensajes"]);
             <a href="logOut.php" class="btn-sec">Salir</a>
         </nav>
     </header>
-
     <main class="container grid">
         <!-- Aquí iterarás con PHP tu JSON de películas: foreach { … } -->
         <?php foreach ($lista_peliculas as $pelicula): ?>
@@ -53,7 +52,7 @@ unset($_SESSION["mensajes"]);
                         <?= $pelicula->sinopsis ?>
                     </p>
                     <div class="movie-actions ">
-                        <a class="btn" href="butaca.php">Acceder</a>
+                        <a class="btn" href="butacas.php?titulo=<?=$pelicula->titulo?>">Acceder</a>
                         <a class="btn" href="procesar_info.php?titulo=<?= $pelicula->titulo ?>">Mas info</a>
                         <!-- COMIENZO DE BOTON CON ADMIN -->
                         <?php if (isset($_SESSION['usuario']) && isset($_SESSION['usuario']->esAdmin) && $_SESSION['usuario']->esAdmin): ?>
