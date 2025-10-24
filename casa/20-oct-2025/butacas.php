@@ -1,4 +1,4 @@
-<?php
+ <?php
 session_start();
 include_once "funciones/utilidades.php";
 print(error_log("ERRORES"));
