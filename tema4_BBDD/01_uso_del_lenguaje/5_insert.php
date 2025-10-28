@@ -14,7 +14,7 @@ try {
     $sentencia->BindParam(":valor2",$apellidos);
     $sentencia->BindParam(":valor3",$edad);
     $sentencia->execute();
-
+    echo "<p>Registro creado correctamente</p>";
 
 
 } catch (PDOException $e) {
