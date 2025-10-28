@@ -1,0 +1,21 @@
+[
+    {
+        "nick": "manolo",
+        "email": "manolo@kk.com",
+        "password": "$2y$10$DuO53Ap9.pAd8l7yz3E9X.SSOYGki2bXPARyE6I6gGxe8KHDCiQ3S",
+        "sexo": "masculino",
+        "categorias": [
+            "accion",
+            "comedia"
+        ],
+        "imagen_perfil": {
+            "name": "tio_corriendo.png",
+            "full_path": "tio_corriendo.png",
+            "type": "image\/png",
+            "tmp_name": "C:\\xampp\\tmp\\php2A38.tmp",
+            "error": 0,
+            "size": 74333
+        },
+        "rol": false
+    }
+]
