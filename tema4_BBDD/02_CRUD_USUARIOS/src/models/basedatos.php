@@ -33,7 +33,7 @@ class BaseDatos{
         try {
             //Conecto a una bbdd concreta
             $this->conexionPDO=new PDO($dsn_conbbdd,$this->username,$this->password);
-            //echo "<p>Exito en la conexion PDO a la bbdd con PDO</p>"
+            echo "<p>Exito en la conexion PDO a la bbdd con PDO</p>";
         } catch (PDOException $e) {
             print "<p>ERROR:No puede conectarse con la base de datos!!. {$e->getMessage()}</p>\n";
         }
@@ -48,8 +48,5 @@ class BaseDatos{
         }
         return self::$instancia;
     }
-    
-
-
 }
 ?>
