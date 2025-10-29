@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!isset($_SESSION["conectado"]) || !$_SESSION["conectado"]) {
+    header("Location:../../public/index.php");
+    die;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -8,6 +8,7 @@ $dbInstancia= BaseDatos::getInstance();//singleton
 
 if ($dbInstancia->getConnection()!=null) {
     //Hemos conectado bien
+    $_SESSION["conectado"]=true;
     header("Location:../src/views/listado.php");
     
 }
