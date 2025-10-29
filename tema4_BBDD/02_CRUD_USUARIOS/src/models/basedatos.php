@@ -33,12 +33,12 @@ class BaseDatos{
         try {
             //Conecto a una bbdd concreta
             $this->conexionPDO=new PDO($dsn_conbbdd,$this->username,$this->password);
-            echo "<p>Exito en la conexion PDO a la bbdd con PDO</p>";
+            // echo "<p>Exito en la conexion PDO a la bbdd con PDO</p>";
+            $this->conexionPDO->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
-            print "<p>ERROR:No puede conectarse con la base de datos!!. {$e->getMessage()}</p>\n";
+            $this->conexionPDO=null;
+            // debug print "<p>ERROR:No puede conectarse con la base de datos!!. {$e->getMessage()}</p>\n";
         }
-        $this->conexionPDO->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-       
     }
     //OBTENEMOS UNA INSTACIA DE LA BASE DE DATOS
     public static function getInstance(){
@@ -48,5 +48,11 @@ class BaseDatos{
         }
         return self::$instancia;
     }
+    public function getConnection(){
+        return $this->conexionPDO;
+    }
+
+    //Magic method clone is empty to prevent duplication of connection
+    private function __clone(){}//prevenir para evitar para crear un duplicado del objeto (bbdd);
 }
 ?>

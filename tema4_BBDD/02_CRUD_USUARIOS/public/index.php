@@ -6,4 +6,13 @@ require_once __DIR__."/../src/models/basedatos.php";
 //Nos conectamos a la base de datos
 $dbInstancia= BaseDatos::getInstance();//singleton
 
+if ($dbInstancia->getConnection()!=null) {
+    //Hemos conectado bien
+    header("Location:../src/views/listado.php");
+    
+}
+else{
+    echo "Error en la conexion a la base de datos";
+    die;
+}
 ?>
