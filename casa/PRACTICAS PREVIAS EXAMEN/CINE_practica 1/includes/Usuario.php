@@ -7,9 +7,9 @@ class Usuario implements JsonSerializable{
     private $sexo;
     private $categorias;
     private $imagen_perfil;
-    private $rol;
+    private $esAdmin;
 
-    function __construct($nick,$email,$password,$sexo,$categorias,$imagen_perfil,$rol)
+    function __construct($nick,$email,$password,$sexo,$categorias,$imagen_perfil,$esAdmin)
     {
         $this->nick=$nick;
         $this->email=$email;
@@ -17,7 +17,7 @@ class Usuario implements JsonSerializable{
         $this->sexo=$sexo;
         $this->categorias=$categorias;
         $this->imagen_perfil=$imagen_perfil;
-        $this->rol=$rol;
+        $this->esAdmin=$esAdmin;
 
     }
     
@@ -71,11 +71,11 @@ class Usuario implements JsonSerializable{
     }
 
     /**
-     * Get the value of rol
+     * Get the value of$esAdmin
      */ 
-    public function getRol()
+    public function getEsAdmin()
     {
-        return $this->rol;
+        return $this->esAdmin;
     }
     function jsonSerialize(): mixed
     {
@@ -86,7 +86,7 @@ class Usuario implements JsonSerializable{
             "sexo"=>$this->sexo,
             "categorias"=>$this->categorias,
             "imagen_perfil"=>$this->imagen_perfil,
-            "rol"=>$this->rol 
+            "esAdmin"=>$this->esAdmin 
         ];
     }
 }

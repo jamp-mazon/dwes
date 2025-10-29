@@ -1,3 +1,12 @@
+<?php 
+session_start();
+if (isset($_COOKIE["email"]) && !empty($_COOKIE["email"])) {
+    $email=$_COOKIE["email"];
+}
+else{
+    $email="";
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -19,7 +28,7 @@
             <h2>Iniciar sesión</h2>
 
             <label>Email
-                <input type="email" name="email" placeholder="tucorreo@ejemplo.com">
+                <input type="email" name="email" placeholder="tucorreo@ejemplo.com" value="<?=$email ?>">
             </label>
 
             <label>Contraseña
@@ -36,6 +45,16 @@
 
             <button type="submit" class="btn">Entrar</button>
         </form>
+        <?php 
+            $_SESSION["errores"]=$_SESSION["errores"]??[];
+            $_SESSION["mensajes"]=$_SESSION["mensajes"]??[];
+        ?>
+        <?php if (!empty($_SESSION["errores"])): ?>
+            <?php foreach ($_SESSION["errores"] as $error):?>
+                <p class="error"><?=$error?></p>
+            <?php endforeach; ?>
+        <?php endif; ?>
+        <?php unset($_SESSION["errores"]); ?>        
     </main>
 </body>
 

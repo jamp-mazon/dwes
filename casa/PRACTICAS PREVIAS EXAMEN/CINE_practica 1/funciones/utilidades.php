@@ -18,5 +18,40 @@
         file_put_contents($ruta_bbdd,$usuarios_json);
         
  }
-
+ function comprobarCorreo($email){
+   if (filter_var($email,FILTER_VALIDATE_EMAIL)) {   
+      $lista_usuarios=[];
+      $lista_usuarios=devolver_usuarios();
+      $emailExiste=false;
+      foreach ($lista_usuarios as $user) {
+         if ($user->email===$email) {
+            return true;
+         }
+      }
+      return false;
+   }
+   else{
+      return false;
+   }
+ }
+ function comprobarPassword($password){
+   $lista_usuarios=devolver_usuarios();
+   foreach ($lista_usuarios as $user) {
+         if (password_verify($password,$user->password)) {
+            return true;
+         }
+   }
+   return false;
+ }
+ function comprobarAdmin($email){
+   $lista_usuarios=devolver_usuarios();
+   foreach ($lista_usuarios as $user) {
+         if ($user->email===$email) {
+            if ($user->esAdmin) {
+               return true;
+            }
+         }
+      }
+      return false;
+ }
 ?>

@@ -1,3 +1,9 @@
+<?php 
+session_start();
+$_SESSION["login"]=$_SESSION["login"]??header("Location:login.php");
+$esAdmin=$_SESSION["esAdmin"]??false;
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -12,11 +18,11 @@
     <header class="hdr">
         <h1>Cartelera</h1>
         <nav>
-            <a href="index.html" class="btn-sec">Inicio</a>
+            <a href="index.php" class="btn-sec">Inicio</a>
             <!-- <?php if ($esAdmin): ?> -->
-            <a href="admin_cartelera.html" class="btn">Administrar cartelera</a>
+            <a href="admin_cartelera.php" class="btn">Administrar cartelera</a>
             <!-- <?php endif; ?> -->
-            <a href="#" class="btn-sec">Salir</a>
+            <a href="logOut.php" class="btn-sec">Salir</a>
         </nav>
     </header>
 
@@ -38,7 +44,11 @@
                     Sinopsis breve de la película para mostrar una descripción corta.
                 </p>
                 <div class="movie-actions">
-                    <a class="btn" href="#">Acceder</a>
+                    <a class="btn" href="butacas.php">Acceder</a>
+                    <a class="btn" href="masInfo.php">INFO</a>
+                    <?php if ($esAdmin): ?>
+                    <a class="btn" href="borrar.php">Borrar</a>
+                    <?php endif; ?>
                 </div>
             </div>
         </article>
