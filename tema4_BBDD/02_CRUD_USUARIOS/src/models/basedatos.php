@@ -27,13 +27,13 @@ class BaseDatos{
         $this->username=$mysqlUser;
         $this->password=$mysqlPassword;
 
-        $dsn_conbbdd = "$this->dbmotor:host $this->host;dbname=$this->database;charset=utf8mb4";
-        $dsn_sinbbdd = "$this->dbmotor;:host=$this->host;charset=utf8mb4";
+        $dsn_conbbdd = "$this->dbmotor:host=$this->host;dbname=$this->database;charset=utf8mb4";
+        $dsn_sinbbdd = "$this->dbmotor:host=$this->host;charset=utf8mb4";
 
         try {
             //Conecto a una bbdd concreta
             $this->conexionPDO=new PDO($dsn_conbbdd,$this->username,$this->password);
-            // echo "<p>Exito en la conexion PDO a la bbdd con PDO</p>";
+            //echo "<p>Exito en la conexion PDO a la bbdd con PDO</p>";die;
             $this->conexionPDO->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
             $this->conexionPDO=null;
@@ -54,5 +54,21 @@ class BaseDatos{
 
     //Magic method clone is empty to prevent duplication of connection
     private function __clone(){}//prevenir para evitar para crear un duplicado del objeto (bbdd);
+
+    //Metodo para pedirle datos a la bbdd
+    public function get_data($sql,array $parametros=[]){//le indico que el segundo parametro sera un array y que puede estar vacio
+
+        try {
+            $sentencia=$this->conexionPDO->prepare($sql);
+            //
+            $sentencia->execute($parametros);//si no esta vacio lo ejecuta y si esta rellena lo ejecuta con los parametros del array asociativo
+            return $sentencia;
+            
+        } catch (PDOException $e) {
+            echo "Fallo al realizar la consulta:" .$e->getMessage();
+        }
+    }
+
+
 }
 ?>
