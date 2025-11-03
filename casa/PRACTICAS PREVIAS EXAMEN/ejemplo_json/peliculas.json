@@ -1,0 +1,38 @@
+[
+    {
+        "titulo":{
+            "es": "cualquiera",
+            "uk": "cualquiera en ingles"
+        },
+        "ano": 2010,
+        "genero": "Ciencia ficción",
+        "director": {
+            "nombre": "Christopher Nolan",
+            "nacionalidad": "Británica"
+        }
+    },
+    {
+        "titulo": {
+            "es":"Viaje interestelar",
+            "uk":"Interestelar"
+        },
+        "ano": 2014,
+        "genero": "Ciencia ficción",
+        "director": {
+            "nombre": "Christopher Nolan",
+            "nacionalidad": "Británica"
+        }
+    },
+    {
+        "titulo":{
+            "es": "La Matriz",
+            "uk": "The Matrix"
+        },
+        "ano": 1999,
+        "genero": "Acción",
+        "director": {
+            "nombre": "The Wachowskis",
+            "nacionalidad": "Estadounidense"
+        }
+    }
+]
