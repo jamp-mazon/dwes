@@ -1,0 +1,41 @@
+[
+ {
+    "id":1,
+    "title": {
+       "es": "Bogotá, la capital que piensa en verde",
+       "uk": "Bogotá, the capital that thinks green"
+    },
+    "description": {
+       "es": "<p>La conciencia ambiental de Bogotá cambió. Después de haber contaminado durante varias décadas nuestras fuentes de agua, de haber provocado una gran polución, de volver todo color cemento, de subir los niveles de ruido hasta más no poder y de otorgar a privados muchas de las riquezas naturales, pasamos de siglo y por fin empezó un cambio, que a fin de cuentas aclamaban todos.<p>\n<p>La capital del país se puso las pilas y comenzó a generar proyectos, que no son solo reconocidos em el país, sino también alrededor del mundo. Se empezó a pensar en verde. Se armaron estrategias que mitigarían el impacto de la contaminación y de un fenómeno que, aunque se nombra mucho y algunos incluso lo subestiman, ya no tiene reversa: el cambio climático.</p>\n",
+       "uk": "<p>Bogota's environmental awareness changed. After having contaminated our water sources for several decades, having caused great pollution, turning everything the color of cement, raising noise levels to the point of not being able to, and granting many of the natural resources to private individuals, we have spent a century and finally a change began, which in the end everyone acclaimed.<p>\n<p>The country's capital got its act together and began to generate projects that are not only recognized in the country, but also around the world. They began to think green. Strategies were put together to mitigate the impact of pollution and a phenomenon that, although it is mentioned a lot and some even underestimate it, no longer has a reverse: climate change.</p>\n"
+    },
+    "date": "1438879920",
+    "image": "http://cuelloalarcon.com/imagenesuoc/imagen_post1.jpg"
+ },
+ {
+    "id":2,
+    "title": {
+       "es": "Urgimos a los gobiernos a hacer caso a la ciencia y actuar ya para evitar una catástrofe climática",
+       "uk": "We urge governments to listen to the science and act now to avoid a climate catastrophe"
+    },
+    "description": {
+       "es": "<p>Los científicos piden a los gobiernos que aceleren las acciones para eliminar los combustibles fósiles, reducir las emisiones y restaurar la naturaleza, el aliado secreto del clima. La ciencia del IPCC muestra que la naturaleza ha absorbido alrededor del 54% de las emisiones de dióxido de carbono relacionadas con los humanos durante la última década.</p>\n<p>Después de dos últimos días maratónicos de conversaciones, los países han aprobado un nuevo informe de ciencia climática del Panel Intergubernamental sobre el Cambio Climático de la ONU (IPCC). El informe reúne investigaciones científicas actuales y deja al descubierto la devastadora realidad y los riesgos que plantea la crisis climática y las formas en que el mundo debe responder.</p>\n",
+       "uk": "<p>Scientists call on governments to speed up action to phase out fossil fuels, reduce emissions and restore nature, the climate's secret ally. IPCC science shows that nature has absorbed about 54% of human-related carbon dioxide emissions over the past decade.</p>\n<p>After the past two marathon days of talks, countries have approved a new climate science report from the UN Intergovernmental Panel on Climate Change (IPCC). The report brings together current scientific research and lays bare the devastating reality and risks posed by the climate crisis and the ways the world must respond.</p>\n"
+    },
+    "date": "1679313600",
+    "image": "http://cuelloalarcon.com/imagenesuoc/imagen_post2.jpg"  
+ },
+ {
+   "id":3, 
+   "title": {
+      "es": "El incremento de la aridez favorece incendios más peligrosos y de mayor extensión",
+      "uk": "The increase in aridity favors more dangerous and larger fires"
+      },
+   "description": {
+      "es": "<p>Hoy vamos a hablar de incendios y su relación con la creciente aridificación que experimenta parte del territorio europeo, y lo haremos a través de un estudio que ha abordado la evolución de la gravedad y la extensión de incendios extremos mediante imágenes de satélite.</p><p>Pese a ser un componente natural de los ecosistemas, los incendios en zonas humanizadas siempre suponen un gran peligro para las personas y el resto de seres vivos con los que convivimos. Esto incluye áreas de gran importancia paisajística, biológica y cultural que cada año se ven arrasadas por el fuego.</p><p>Por ese motivo, las estrategias de prevención y mitigación de incendios ocupan un espacio esencial dentro de las políticas de gestión del medio natural. Como resultado de ese esfuerzo, muchos países han conseguido reducir el número de hectáreas quemadas cada año, como ocurre con España.</p>",
+      "uk": "<p>Today we are going to talk about fires and their relationship with the increasing aridification that part of the European territory is experiencing, and we will do so through a study that has addressed the evolution of severity and the extent of extreme fires using satellite images.</p><p>Despite being a natural component of ecosystems, fires in humanized areas always pose a great danger to people and other living beings with whom we live. This includes areas of great scenic, biological and cultural importance that are devastated by fire every year.</p><p>For this reason, fire prevention and mitigation strategies occupy an essential space within natural environment management policies. As a result of this effort, many countries have managed to reduce the number of hectares burned each year, as is the case with Spain.</p>"
+      },
+   "date": "1676447162",
+   "image": "http://cuelloalarcon.com/imagenesuoc/imagen_post3.jpg"  
+}
+]
