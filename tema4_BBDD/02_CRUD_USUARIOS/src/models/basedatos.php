@@ -4,13 +4,13 @@ require_once __DIR__ . "/../config.php";//directorio actual mas . para concatena
 
 class BaseDatos{
 
-    private $conexionPDO;
+    private PDO| null $conexionPDO;
     private static $instancia;//Singleton patron
-    private $dbmotor;
-    private $host;
-    private $database;
-    private $username;
-    private $password;
+    private string $dbmotor;
+    private string $host;
+    private string $database;
+    private string $username;
+    private string $password;
 
     //Constructor
     private function __construct()
