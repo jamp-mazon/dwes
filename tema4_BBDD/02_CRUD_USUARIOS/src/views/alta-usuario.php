@@ -34,7 +34,7 @@ require_once "../models/Usuario.php";
         <label for="usuario">Usuario</label>
         <input type="text" name="usuario"><br>
         <label for="fecha_nac">Fecha Nacimiento</label>
-        <input type="datetime" name="fecha_nac"><br>
+        <input type="date" name="fecha_nac" value="1980-01-01"><br>
         <label for="password">Contraseña</label>
         <input type="password" name="password"><br>
         <button type="submit">Enviar</button>

@@ -68,6 +68,32 @@ class BaseDatos{
             echo "Fallo al realizar la consulta:" .$e->getMessage();
         }
     }
+    public function crear_usuario(Usuario $_usuario){
+        $nombre = $_usuario->nombre;
+        $apellidos = $_usuario->apellidos;
+        $usuario = $_usuario->usuario;
+        $password = $_usuario->password;
+        $fecha_nac = $_usuario->fecha_nac->format("Y-m-d");
+
+         $sql="INSERT INTO usuarios (nombre,apellidos,usuario,password,fecha_nac)
+         VALUES(:nombre,:apellidos,:usuario,:password,:fecha_nac)";
+
+         try {
+            $sentencia = $this->conexionPDO->prepare($sql);
+            $sentencia -> bindParam(":nombre",$nombre);
+            $sentencia -> bindParam(":apellidos",$apellidos);
+            $sentencia -> bindParam(":usuario",$usuario);
+            $sentencia -> bindParam(":password",$password);
+            $sentencia -> bindParam(":fecha_nac",$fecha_nac);
+            $sentencia -> execute();
+             return true;
+        }
+        catch(PDOException $e){
+            echo $e->getMessage();
+            return false;
+            //die;
+        }
+    }
 
 
 }

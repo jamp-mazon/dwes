@@ -72,5 +72,7 @@ $sentencia= $dbInstacia->get_data($sql);
             <?php endwhile; ?>    
         </tbody>
     </table>
+    <?=$_SESSION["insert"]?>
+    <?php unset($_SESSION["insert"]) ?>
 </body>
 </html>
