@@ -10,7 +10,18 @@ else{
     $id=$_POST["id_a_actualizar"];
     $dbIntancia=BaseDatos::getInstance();
     $sql="SELECT * FROM usuarios where id=$id";
-    $registro_usuario=$dbIntancia->get_data($sql);
+    $sentencia=$dbIntancia->get_data($sql);
+    $registro_usuario=$sentencia->fetch(PDO::FETCH_OBJ);
+
+
+    $usuario=new Usuario(
+        $registro_usuario->id,
+        $registro_usuario->nombre,
+        $registro_usuario->apellidos,
+        $registro_usuario->usuario,
+        $registro_usuario->password,
+        new DateTime($registro_usuario->fecha_nac)
+    );
 
 }
 
@@ -24,17 +35,17 @@ else{
 </head>
 <body>
     <form action="../controllers/actualizar.php" method="post">
-        <input type="hidden" name="id" value="<?=$registro_usuario->id ?>">
+        <input type="hidden" name="id" value="<?=$usuario->id ?>">
         <label for="nombre">Nombre</label>
-        <input type="text" name="nombre" value="<?=$registro_usuario->nombre ?>"><br>
+        <input type="text" name="nombre" value="<?=$usuario->nombre ?>"><br>
         <label for="apellidos">Apellidos</label>
-        <input type="text" name="apellidos" value="<?=$registro_usuario->apellidos ?>"><br>
+        <input type="text" name="apellidos" value="<?=$usuario->apellidos ?>"><br>
         <label for="usuario">Usuario</label>
-        <input type="text" name="usuario" value="<?=$registro_usuario->usuario ?>"><br>
+        <input type="text" name="usuario" value="<?=$usuario->usuario ?>"><br>
         <label for="fecha_nac">Fecha Nacimiento</label>
-        <input type="date" name="fecha_nac" value="<?= $registro_usuario->fecha_nac?>"><br>
+        <input type="date" name="fecha_nac" value="<?= $usuario->fecha_nac->format("Y-m-d")?>"><br>
         <label for="password">Contraseña</label>
-        <input type="password" name="password" id="password" disabled> <button id="activar">Activar</button><br>
+        <input type="password" name="password" id="password" value="<?=$usuario->password ?>" disabled > <button id="activar">Activar</button><br>
         <button type="submit">Enviar</button>
         <script>
             

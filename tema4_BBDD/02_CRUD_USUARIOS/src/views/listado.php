@@ -63,7 +63,7 @@ $sentencia= $dbInstacia->get_data($sql);
                         <input type="hidden" name="id_a_borrar" value="<?=$usuario->id?>">
                         <button type="submit">BORRAR</button>
                     </form>
-                    <form action="actualizar.php" method="post">
+                    <form action="actualiza.php" method="post">
                         <input type="hidden" name="id_a_actualizar" value="<?=$usuario->id?>">
                         <button type="submit">ACTUALIZAR</button>
                     </form>                      

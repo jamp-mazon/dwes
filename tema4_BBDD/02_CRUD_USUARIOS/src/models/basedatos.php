@@ -125,7 +125,7 @@ class BaseDatos{
         }
         else{
             $sql= "UPDATE usuarios 
-            SET nombre=:nombre,apellidos=:apellidos,usuario=usuario,fecha_nac=:fecha_nac,password=:password
+            SET nombre=:nombre,apellidos=:apellidos,usuario=usuario,password=:password,fecha_nac=:fecha_nac,
             WHERE id=:id";
         }
         try {
