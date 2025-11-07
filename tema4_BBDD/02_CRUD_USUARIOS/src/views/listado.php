@@ -59,7 +59,7 @@ $sentencia= $dbInstacia->get_data($sql);
                         <a href="ver.php?id=<?=$usuario->id?>">
                             <button>VER</button>
                         </a>
-                    <form action="borrar.php" method="post">
+                    <form action="../controllers/delete.php" method="post">
                         <input type="hidden" name="id_a_borrar" value="<?=$usuario->id?>">
                         <button type="submit">BORRAR</button>
                     </form>
@@ -72,7 +72,5 @@ $sentencia= $dbInstacia->get_data($sql);
             <?php endwhile; ?>    
         </tbody>
     </table>
-    <?=$_SESSION["insert"]?>
-    <?php unset($_SESSION["insert"]) ?>
 </body>
 </html>

@@ -94,6 +94,58 @@ class BaseDatos{
             //die;
         }
     }
+    public function borrar_usuario(int $id){
+        $sql="DELETE FROM usuarios where id=:id";
+
+        try {
+             $sentencia=$this->conexionPDO->prepare($sql);
+             $sentencia->bindParam(":id",$id);
+             $sentencia->execute();
+             return true;
+
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+    public function actualizar_usuario(Usuario $_usuario){
+        $id=$_usuario->id;
+        $nombre=$_usuario->nombre;
+        $apellidos=$_usuario->apellidos;
+        $user=$_usuario->usuario;
+        $fecha_nac=$_usuario->fecha_nac;
+        $password=$_usuario->password;
+        if (is_null($password)) {
+           $sql="UPDATE usuarios
+                     SET    nombre = :nombre,
+                            apellidos = :apellidos,
+                            usuario = :usuario,
+                            fecha_nac = :fecha_nac
+                    WHERE id = :id";
+        }
+        else{
+            $sql= "UPDATE usuarios 
+            SET nombre=:nombre,apellidos=:apellidos,usuario=usuario,fecha_nac=:fecha_nac,password=:password
+            WHERE id=:id";
+        }
+        try {
+             $sentencia=$this->conexionPDO->prepare($sql);
+            $sentencia->bindParam(":nombre",$nombre);
+            $sentencia->bindParam(":apellidos",$apellidos);
+            $sentencia->bindParam(":usuario",$usuario);
+            if (!is_null($password)) {
+                $sentencia->bindParam(":password",$password);
+            }
+            $sentencia->bindParam(":fecha_nac",$fecha_nac);
+            $sentencia->execute();
+            return true;
+
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+
+    }
 
 
 }
