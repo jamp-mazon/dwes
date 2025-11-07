@@ -4,13 +4,13 @@ require_once __DIR__ . "/../config.php";//directorio actual mas . para concatena
 
 class BaseDatos{
 
-    private $conexionPDO;
+    private PDO| null $conexionPDO;
     private static $instancia;//Singleton patron
-    private $dbmotor;
-    private $host;
-    private $database;
-    private $username;
-    private $password;
+    private string $dbmotor;
+    private string $host;
+    private string $database;
+    private string $username;
+    private string $password;
 
     //Constructor
     private function __construct()
@@ -66,6 +66,32 @@ class BaseDatos{
             
         } catch (PDOException $e) {
             echo "Fallo al realizar la consulta:" .$e->getMessage();
+        }
+    }
+    public function crear_usuario(Usuario $_usuario){
+        $nombre = $_usuario->nombre;
+        $apellidos = $_usuario->apellidos;
+        $usuario = $_usuario->usuario;
+        $password = $_usuario->password;
+        $fecha_nac = $_usuario->fecha_nac->format("Y-m-d");
+
+         $sql="INSERT INTO usuarios (nombre,apellidos,usuario,password,fecha_nac)
+         VALUES(:nombre,:apellidos,:usuario,:password,:fecha_nac)";
+
+         try {
+            $sentencia = $this->conexionPDO->prepare($sql);
+            $sentencia -> bindParam(":nombre",$nombre);
+            $sentencia -> bindParam(":apellidos",$apellidos);
+            $sentencia -> bindParam(":usuario",$usuario);
+            $sentencia -> bindParam(":password",$password);
+            $sentencia -> bindParam(":fecha_nac",$fecha_nac);
+            $sentencia -> execute();
+             return true;
+        }
+        catch(PDOException $e){
+            echo $e->getMessage();
+            return false;
+            //die;
         }
     }
 

@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once "../models/basedatos.php";
+require_once "../models/Usuario.php";
 
 if (!isset($_SESSION["conectado"]) || !$_SESSION["conectado"]) {
     header("Location:../../public/index.php");
@@ -33,34 +34,45 @@ $sentencia= $dbInstacia->get_data($sql);
                 <th>Apellidos</th>
                 <th>Usuario</th>
                 <th>Fecha Nac</th>
+                <th>Edad</th>
                 <th>Accion</th>
             </tr>
         </thead>
         <tbody>
-            <?php while ($registroPDO = $sentencia->fetch(PDO::FETCH_OBJ)):?>
+            <?php while ($registroPDO = $sentencia->fetch(PDO::FETCH_OBJ)):
+                $usuario=new Usuario(
+                    $registroPDO->id,
+                    $registroPDO->nombre,
+                    $registroPDO->apellidos,
+                    $registroPDO->usuario,
+                    $registroPDO->password,
+                    new DateTime($registroPDO->fecha_nac)
+                );
+                ?>
                 <tr>
-                    <td><?=$registroPDO->nombre ?></td>
-                    <td><?=$registroPDO->apellidos ?></td>
-                    <td><?=$registroPDO->usuario ?></td>
-                    <td><?=$registroPDO->fecha_nac ?></td>
+                    <td><?=$usuario->nombre ?></td>
+                    <td><?=$usuario->apellidos ?></td>
+                    <td><?=$usuario->usuario ?></td>
+                    <td><?=$usuario->fecha_nac->format("d/m/Y") ?></td>
+                    <td><?=$usuario->getEdad() ?></td>
                     <td>
-                        <a href="ver.php?id=<?=$registroPDO->id?>">
+                        <a href="ver.php?id=<?=$usuario->id?>">
                             <button>VER</button>
                         </a>
                     <form action="borrar.php" method="post">
-                        <input type="hidden" name="id_a_borrar" value="<?=$registroPDO->id?>">
+                        <input type="hidden" name="id_a_borrar" value="<?=$usuario->id?>">
                         <button type="submit">BORRAR</button>
                     </form>
                     <form action="actualizar.php" method="post">
-                        <input type="hidden" name="id_a_actualizar" value="<?=$registroPDO->id?>">
+                        <input type="hidden" name="id_a_actualizar" value="<?=$usuario->id?>">
                         <button type="submit">ACTUALIZAR</button>
-                    </form>    
-                    
+                    </form>                      
                 </td>
-
                 </tr>
             <?php endwhile; ?>    
         </tbody>
     </table>
+    <?=$_SESSION["insert"]?>
+    <?php unset($_SESSION["insert"]) ?>
 </body>
 </html>
