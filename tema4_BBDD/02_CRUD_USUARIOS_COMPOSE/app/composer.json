@@ -1,0 +1,20 @@
+{
+    "name": "alumnosdaw/app",
+    "description": "CRUD DE USUARIOS",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Alumnosdaw\\App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "jamp-mazon",
+            "email": "joseantoniomazonperez@gmail.com"
+        }
+    ],
+    "require": {
+        "monolog/monolog": "^3.9",
+        "mpdf/mpdf": "8.2"
+    }
+}

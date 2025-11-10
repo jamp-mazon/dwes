@@ -1,0 +1,8 @@
+[2025-11-10T19:37:26.473001+01:00] app.ERROR: Error generico [] []
+[2025-11-10T19:38:02.114140+01:00] app.ERROR: Error generico [] []
+[2025-11-10T19:41:40.194663+01:00] app.ERROR: Error generico [] []
+[2025-11-10T19:41:40.196204+01:00] app.DEBUG: Debug:Pedro [] []
+[2025-11-10T19:43:44.290211+01:00] app.ERROR: Error generico [] []
+[2025-11-10T19:43:44.292506+01:00] app.ERROR: Error generico {"archivo":"testmonolog.php"} []
+[2025-11-10T19:43:44.292573+01:00] app.DEBUG: Debug:Pedro [] []
+[2025-11-10T19:43:44.292610+01:00] app.DEBUG: Debug:Pedro [] []
