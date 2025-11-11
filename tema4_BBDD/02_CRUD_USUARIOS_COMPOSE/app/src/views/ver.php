@@ -1,7 +1,10 @@
 <?php
 session_start();
 
-require_once __DIR__ . "/../models/basedatos.php";
+require __DIR__ . "/../../vendor/autoload.php";
+use App\models\Basedatos;
+use App\models\Usuario;
+// require_once __DIR__ . "/../models/basedatos.php";
 
 if (!isset ($_SESSION["conectado"]) || !$_SESSION["conectado"]){
     header ("Location: ../../public/index.php");

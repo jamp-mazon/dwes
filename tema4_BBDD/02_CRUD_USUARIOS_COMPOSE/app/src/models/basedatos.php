@@ -1,11 +1,20 @@
 <?php
-require_once __DIR__ . "/../config.php";
-require_once __DIR__ . "/usuario.php";
+
+namespace App\models;
+require __DIR__ . "/../../vendor/autoload.php";
+use App\models\Usuario;
+
+use PDO;
+use PDOException;
+use PDOStatement;
+
+// require_once __DIR__ . "/../config.php";
+// require_once __DIR__ . "/usuario.php";
 
 
 class Basedatos
 {
-    private ?PDO $conexionPDO;
+    private PDO|null $conexionPDO;
     private static $instancia; //Singleton patron
     private string $dbmotor;
     private string $host;
@@ -16,18 +25,22 @@ class Basedatos
     //Constructor
     private function __construct(){
 
-        global $dbMotor; 
-        global $mysqlHost;
-        global $mysqlUser;
-        global $mysqlPassword; 
-        global $mysqlDatabase;
+        // global $dbMotor; 
+        // global $mysqlHost;
+        // global $mysqlUser;
+        // global $mysqlPassword; 
+        // global $mysqlDatabase;
+
+        //Cargar configuracion desde JSON
+        $configPath= __DIR__ . "/../config.json";
+        $config=json_decode(file_get_contents($configPath),true);
 
 
-        $this->dbmotor = $dbMotor;
-        $this->host = $mysqlHost;
-        $this->database = $mysqlDatabase;
-        $this->username = $mysqlUser;
-        $this->password = $mysqlPassword;
+        $this->dbmotor = $config["dbMotor"];
+        $this->host = $config["mysqlHost"];
+        $this->database = $config["mysqlDatabase"];
+        $this->username = $config["mysqlUser"];
+        $this->password = $config["mysqlPassword"];
 
         
         $dsn_conbbdd = "$this->dbmotor:host=$this->host;dbname=$this->database;charset=utf8mb4";
@@ -62,7 +75,7 @@ class Basedatos
     }
 
     // Get PDO connection
-    public function getConnection():PDO
+    public function getConnection():PDO |NULL
     {
         return $this->conexionPDO;
     }

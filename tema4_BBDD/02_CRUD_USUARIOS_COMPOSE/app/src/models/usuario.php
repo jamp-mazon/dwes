@@ -1,5 +1,9 @@
 <?php
 
+namespace App\models;
+use JsonSerializable;
+use DateTime;
+
 class Usuario implements JsonSerializable {
     //Propiedades
     private int | null $id;            //Puede ser int o null, en PHP7, ?int
