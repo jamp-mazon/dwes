@@ -1,0 +1,3 @@
+[2025-11-13T16:41:50.705498+01:00] app.ERROR: Fallo al conectarse a la BBDD:SQLSTATE[HY000] [2019] Unknown character set {"conexion":"basedatos.php"} []
+[2025-11-13T16:42:17.546634+01:00] app.ERROR: Fallo al conectarse a la BBDD:SQLSTATE[HY000] [2019] Unknown character set {"conexion":"basedatos.php"} []
+[2025-11-13T16:42:20.521280+01:00] app.ERROR: Fallo al conectarse a la BBDD:SQLSTATE[HY000] [2019] Unknown character set {"conexion":"basedatos.php"} []

@@ -1,3 +1,22 @@
+<?php 
+session_start();
+require __DIR__."/../vendor/autoload.php";
+use App\models\Basedatos;
+
+//Nos conectamos a la BBDD
+$db=new BaseDatos();
+if ($db->estaConectado()) {
+    //Hemos conectado bien
+    $_SESSION["conectado"]=true;
+    header("Location:../src/views/listado.php");
+    die;
+}
+else{
+    $mensaje="ERROR en la conexion en la BBDD";
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
