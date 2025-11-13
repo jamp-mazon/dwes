@@ -63,8 +63,7 @@ if ($esAdmin) {
                 $rutaDestinoImagen="assets/images/imagenes_peliculas";
                 $rutaOrigenImagen=$_FILES["poster"]["tmp_name"];
                 $nombre_imagen=$_FILES["poster"]["name"];
-                if(move_uploaded_f
-                ile($rutaOrigenImagen,$rutaDestinoImagen.$nombre_imagen)){
+                if(move_uploaded_file($rutaOrigenImagen,$rutaDestinoImagen.$nombre_imagen)){
                      
                 }
             }
