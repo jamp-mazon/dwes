@@ -1,4 +1,4 @@
-<?php
+<?php 
 require __DIR__. "/../../vendor/autoload.php";
 use App\models\Basedatos;
 use App\models\Tarea;
@@ -8,21 +8,16 @@ if ($_SERVER["REQUEST_METHOD"]!=="POST") {
     die;
 }
 else{
-    $id=$_POST["id"];
+    $id=$_POST["id"]??null;
     $mibd=new Basedatos();
     $array=[":id"=>$id];
-    $sql="SELECT * FROM tareas WHERE :id";
+    $sql="SELECT * FROM tareas WHERE id=:id";
     $sentencia=$mibd->get_data($sql,$array);
 
     $registro=$sentencia->fetch(PDO::FETCH_OBJ);
     $tarea=new Tarea($registro->id,$registro->descripcion,$registro->completada);
-
-    $mibd->borrar_tarea($tarea);
-
+    $mibd->actualizar_tarea($tarea);
     header("Location:../views/listado.php");
     exit;
-
 }
-
-
 ?>

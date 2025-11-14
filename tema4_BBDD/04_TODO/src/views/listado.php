@@ -47,12 +47,12 @@ else{
         <li class="<?= $t->getCompletada() ? 'done' : '' ?>">
             <?= ($t->getDescripcion()) ?>
 
-            <?php if (!$t->getCompletada()): ?>
-                <form action="PARA COMPLETAR LA TAREA" method="POST" class="inline">
+           
+                <form action="../controllers/procesar_completada.php" method="POST" class="inline">
                     <input type="hidden" name="id" value="<?= $t->getId() ?>">
                     <button type="submit">✔</button>
                 </form>
-            <?php endif; ?>
+              
 
             <form action="../controllers/procesar_borrar.php" method="POST" class="inline">
                 <input type="hidden" name="id" value="<?= $t->getId() ?>">

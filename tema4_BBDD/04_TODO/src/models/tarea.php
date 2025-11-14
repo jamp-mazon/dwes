@@ -46,5 +46,17 @@ class Tarea{
     {
         return $this->completada;
     }
+
+    /**
+     * Set the value of completada
+     *
+     * @return  self
+     */ 
+    public function setCompletada($completada)
+    {
+        $this->completada = $completada;
+
+        return $this;
+    }
 }
 ?>

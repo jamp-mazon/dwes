@@ -72,11 +72,36 @@ class Basedatos{
             }
         }
 
-        public function borrar_tarea($id){
-            $sql="DELETE FROM tareas where :id";
-            $sentencia=$this->conexionPDO->prepare($sql);
-            $sentencia->bindParam(":id",$id);
-            $sentencia->execute();
+        public function borrar_tarea(Tarea $tarea){
+            $sql="DELETE FROM tareas where id=:id";
+            try {
+                $sentencia=$this->conexionPDO->prepare($sql);
+                $sentencia->bindParam(":id",$tarea->id);
+                $sentencia->execute();
+            } catch (PDOException $e) {
+                $this->log->error("Error al borrar la tarea:".$e->getMessage(),["borrado"=>"basedatos.php"]);
+            }
+        }
+        public function actualizar_tarea(Tarea $tarea){
+            //update empleado set completado =0 where id=12;
+            if ($tarea->completada) {
+                $tarea->setCompletada(false);
+                $sql="UPDATE tareas set completada = FALSE where id=:id";
+
+            }
+            else{
+                $tarea->setCompletada(true);
+                $sql="UPDATE tareas set completada = TRUE where id=:id";
+            }
+            // $sql="UPDATE tareas set completada :numero where id=:id";
+            try {
+                $sentencia=$this->conexionPDO->prepare($sql);
+                $sentencia->bindParam(":id",$tarea->id);
+                $sentencia->execute();
+            } catch (PDOException $e) {
+                $this->log->error("Error al cambiar el booleano".$e->getMessage(),["booleano"=>"basedatos.php"]);
+
+            }
         }
         
 
