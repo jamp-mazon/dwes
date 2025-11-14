@@ -4,7 +4,9 @@ require __DIR__ . "/../../vendor/autoload.php";
 use PDO;
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
+use App\models\Tarea;
 use PDOException;
+use PDOStatement;
 
 class Basedatos{
 
@@ -41,13 +43,40 @@ class Basedatos{
             }
         }
         public function estaConectado(){
+            $_SESSION["conectado"]=true;
             return $this->conectado;
         }
-        public function conectarBBDD():PDO{
-            return $this->conexionPDO;
+        public function get_data($sql,array $parametros=[]):PDOStatement |null{
+            try {
+            $sentencia = $this->conexionPDO->prepare($sql);
+            $sentencia->execute($parametros);
+            return $sentencia;
+            } catch (PDOException $e) {
+                $this->log->error("Fallo al obtener la tarea:".$e->getMessage(),["recoger_datos"=>"basedatos.php"]);
+
+            }
         }
         public function crear_tarea(Tarea $tarea){
+//             INSERT INTO tareas (descripcion, completada, fecha_creacion)
+// VALUES ('tarea de prueba', FALSE, '2000-01-01');
+            $sql="INSERT INTO tareas (descripcion,completada) VALUES (:descripcion,:completada)";
+            try {
+            $sentencia = $this->conexionPDO->prepare($sql);
+            $sentencia->bindParam(":descripcion", $tarea->getDescripcion());
+            $sentencia->bindParam(":completada", $tarea->getCompletada());
+            $sentencia->execute();
+            return $sentencia;
+            } catch (PDOException $e) {
+                $this->log->error("Fallo al crear la tarea:".$e->getMessage(),["creacion"=>"basedatos.php"]);
+                return null;
+            }
+        }
 
+        public function borrar_tarea($id){
+            $sql="DELETE FROM tareas where :id";
+            $sentencia=$this->conexionPDO->prepare($sql);
+            $sentencia->bindParam(":id",$id);
+            $sentencia->execute();
         }
         
 

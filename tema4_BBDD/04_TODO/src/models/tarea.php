@@ -22,5 +22,29 @@ class Tarea{
         $this->completada=$completada;
     }
 
+
+    /**
+     * Get the value of id
+     */ 
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Get the value of descripcion
+     */ 
+    public function getDescripcion()
+    {
+        return $this->descripcion;
+    }
+
+    /**
+     * Get the value of completada
+     */ 
+    public function getCompletada()
+    {
+        return $this->completada;
+    }
 }
 ?>
