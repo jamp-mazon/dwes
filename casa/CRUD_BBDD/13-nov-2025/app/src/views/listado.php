@@ -1,8 +1,10 @@
 <?php 
 require __DIR__ . "/../../vendor/autoload.php";
 use App\models\Basedatos;
+use App\models\Tarea;
 $mibd=new Basedatos();
-
+$sql="SELECT * FROM tareas";
+$sentencia=$mibd->get_data($sql);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,28 +17,36 @@ $mibd=new Basedatos();
 <body>
     <h1>LISTADO DE TAREAS</h1>
 
-    <form action="PARA AÑADIR LA TAREA" method="POST" class="form-add">
+    <form action="../controllers/procesar-add.php" method="POST" class="form-add">
         <input type="text" name="descripcion" placeholder="Nueva tarea..." required>
         <button type="submit">Añadir</button>
     </form>
 
-    <ul class="task-list">
-        <li class="<?= $t->completada ? 'done' : '' ?>">
-            <?= ($t->descripcion) ?>
+    <ul class="task-list"><?php 
+            while ($registroPDO = $sentencia->fetch(PDO::FETCH_OBJ)):
+                $t=new Tarea(
+                    $registroPDO->id,
+                    $registroPDO->descripcion,
+                    $registroPDO->completada,
+                );
+        ?>
 
-            <?php if (!$t->completada): ?>
-                <form action="PARA COMPLETAR LA TAREA" method="POST" class="inline">
-                    <input type="hidden" name="id" value="<?= $t->id ?>">
+        <li class="<?= $t->getCompletada() ? 'done' : '' ?>">
+            <?= ($t->getDescripcion()) ?>
+
+            <?php if (!$t->getCompletada()): ?>
+                <form action="" method="POST" class="inline">
+                    <input type="hidden" name="id" value="<?= $t->getId() ?>">
                     <button type="submit">✔</button>
                 </form>
             <?php endif; ?>
 
             <form action="PARA BORRAR LA TAREA" method="POST" class="inline">
-                <input type="hidden" name="id" value="<?= $t->id ?>">
+                <input type="hidden" name="id" value="<?= $t->getId() ?>">
                 <button type="submit">🗑️</button>
             </form>
         </li>
-   
+    <?php endwhile; ?>
     </ul>
     
 </body>

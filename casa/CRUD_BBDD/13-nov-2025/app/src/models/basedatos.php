@@ -19,7 +19,7 @@ class Basedatos{
             $this->log=new Logger("app");
             $this->log->pushHandler(new StreamHandler(__DIR__. "/../../app.log"));
             $config_path=__DIR__."/../config.json";
-            $config=json_decode(file_get_contents($config_path,true));
+            $config=json_decode(file_get_contents($config_path),true);
             $dbmotor=$config["dbMotor"];
             $host=$config["mysqlHost"];
             $user=$config["mysqlUser"];
@@ -31,14 +31,18 @@ class Basedatos{
             try {
                 $this->conexionPDO=new PDO($dsn_conbbdd,$user,$password);
                 $this->conexionPDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                $this->conectado=true;
             } catch (\PDOException  $e) {
                 $this->conectado=false;
                 $this->conexionPDO=null;
                 $this->log->error("FALLO AL CONECTAR BASE DE DATOS:"+$e,["archivo"=>"basedatos.php"]);
             }   
     }
-    public function conectarse():PDO{
-        return $this->conexionPDO;
+    // public function conectarse():PDO{
+    //     return $this->conexionPDO;
+    // }
+    public function estaConectado(){
+        return $this->conectado;
     }
     public function get_data($sql,array $parametros=[]):PDOStatement{
         try {
@@ -46,6 +50,7 @@ class Basedatos{
             $sentencia->execute($parametros);
             return $sentencia;
         } catch (PDOException $e) {
+            throw $e;
             $this->log->error("FALLO AL RECIBIR LOS DATOS:"+$e,["archivo"=>"basedatos.php"]);
         }
     }
