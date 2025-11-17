@@ -1,0 +1,99 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    padding: 20px;
+    max-width: 600px;
+    margin: auto;
+}
+
+h1 {
+    text-align: center;
+}
+
+.form-add {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.form-add input {
+    flex: 1;
+    padding: 8px;
+}
+
+button {
+    padding: 8px 12px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+ul.task-list {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background: white;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+li.done {
+    text-decoration: line-through;
+    color: gray;
+}
+
+form.inline {
+    display: inline;
+}
+.formularios{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+}
+.form-registro{
+    background-color: aquamarine;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+}
+.form-registro input{
+    width: 200px;
+}
+.form-registro button{
+    margin-top: -20px;
+    width: 200px;
+    background-color: rgb(40, 104, 193);
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: large;
+    cursor: pointer;
+}
+.form-login{
+    height: 220px;
+    background-color: aquamarine;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+} 
+.form-login input{
+    width: 200px;
+}
+.form-login button{
+    width: 200px;
+    background-color: rgb(40, 104, 193);
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: large;
+    cursor: pointer;
+}

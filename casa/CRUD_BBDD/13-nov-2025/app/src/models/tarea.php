@@ -9,13 +9,15 @@ class Tarea{
     private int|null $id;
     private string $descripcion;
     private bool $completada;
+    private string $id_usuario;
     private DateTime $fecha_creacion;
 
-    public function __construct(int|null $id,string $descripcion,bool $completada)
+    public function __construct(int|null $id,string $id_usuario, string $descripcion,bool $completada)
     {
         $this->id=$id;
         $this->descripcion=$descripcion;
         $this->completada=$completada;
+        $this->id_usuario=$id_usuario;
     }
     public function completarTarea(){
         return $this->completada=true;
@@ -55,6 +57,14 @@ class Tarea{
         $this->completada = $completada;
 
         return $this->completada;
+    }
+
+    /**
+     * Get the value of id_usuario
+     */ 
+    public function getId_usuario()
+    {
+        return $this->id_usuario;
     }
  }
 ?>

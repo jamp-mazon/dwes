@@ -12,3 +12,12 @@ CREATE TABLE tareas (
 
 INSERT INTO tareas (descripcion, completada, fecha_creacion)
 VALUES ('tarea de prueba', FALSE, '2000-01-01');
+
+-- -- Tabla de usuarios
+-- CREATE TABLE usuarios (
+--     id INT AUTO_INCREMENT PRIMARY KEY,
+--     nombre VARCHAR(100) NOT NULL,
+--     email VARCHAR(150) NOT NULL UNIQUE,
+--     password VARCHAR(255) NOT NULL,
+--     fecha_registro DATETIME DEFAULT CURRENT_TIMESTAMP
+-- );

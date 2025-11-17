@@ -2,20 +2,17 @@
 session_start();
 require __DIR__."/../../vendor/autoload.php";
 use App\models\Basedatos;
-use App\models\Tarea;
-
 if ($_SERVER["REQUEST_METHOD"]!=="POST") {
     header("Location:../views/listado.php");
-    die;
+    exit;
 }
 else{
-    $descripcion=$_POST["descripcion"]??"";
-    $id_usuario=$_POST["id_usuario"]??"";
+    $id=$_POST["id"]??null;
     $mibd=new Basedatos();
-    $miTarea=new Tarea(null,$id_usuario,$descripcion,false);
-    $mibd->crear_tarea($miTarea);
+
+    $mibd->borrar_tarea($id);
     header("Location:../views/listado.php");
-    exit;
+    exit();
 }
 
 ?>
