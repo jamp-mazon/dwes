@@ -1,16 +1,32 @@
 <?php
 session_start();
+require __DIR__."/../../vendor/autoload.php";
+use App\models\Usuarios;
+use App\models\Basedatos;
 
 // Aquí asumimos que en el login has guardado algo como:
 // $_SESSION['usuario'] = ['id' => 1, 'nombre' => 'Admin General', 'email' => '...'];
 
-if (!isset($_SESSION['usuario'])) {
+if (!isset($_SESSION['id'])) {
     header('Location: login.php');
     exit;
 }
+else{
+    $mibd=new Basedatos();
+    $parametros=[":id"=>$_SESSION["id"]];
+    $sql="SELECT * FROM USUARIOS where id=:id";
+    $sentencia=$mibd->get_data($sql,$parametros);
+    $registroPDO=$sentencia->fetch(PDO::FETCH_OBJ);
+    $nuevo_usuario=new Usuarios(
+                        $registroPDO->id,
+                        $registroPDO->nombre,
+                        $registroPDO->email,
+                        $registroPDO->password_hash,
+                        $registroPDO->rol,
+                        $registroPDO->creado_en
+                    );
 
-$usuario = $_SESSION['usuario'];
-$nombreUsuario = is_array($usuario) ? $usuario['nombre'] : $usuario; // ajústalo a tu estructura
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -149,7 +165,7 @@ $nombreUsuario = is_array($usuario) ? $usuario['nombre'] : $usuario; // ajústal
 <header>
     <h1>Gestor de Paquetería</h1>
     <div class="user-info">
-        <span>Sesión iniciada como: <strong></strong></span>
+        <span>Sesión iniciada como: <strong><?= $nuevo_usuario->getNombre() ?></strong></span>
         <!-- Enlaza esto a un script logout.php que haga session_destroy() -->
         <a href="logout.php" class="btn-logout">Cerrar sesión</a>
     </div>

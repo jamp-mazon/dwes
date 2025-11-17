@@ -60,7 +60,7 @@ else{
                     );
                     //compruebo la password en texto plano y hasheada si es OK el usuario se logea con exito
                     if (password_verify($password,$nuevo_usuario->getPassword())) {
-                        $_SESSION["usuario"]=$nuevo_usuario;
+                        $_SESSION["id"]=$nuevo_usuario->getId();
                         $_SESSION["logeado"]=true;
                         header("Location:../views/dashboard.php");
                         die;
