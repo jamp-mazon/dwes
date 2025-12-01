@@ -19,3 +19,5 @@
 [2025-11-20T19:44:20.444886+01:00] app.INFO: El usuario Luis García , con ID:3 ha iniciado sesion [] []
 [2025-11-20T19:44:46.641965+01:00] app.INFO: Exito al crear la nueva incidencia [] []
 [2025-11-20T19:45:03.652263+01:00] app.INFO: El usuario Admin General , con ID:1 ha iniciado sesion [] []
+[2025-11-30T11:35:16.776283+01:00] app.INFO: El usuario Admin General , con ID:1 ha iniciado sesion [] []
+[2025-11-30T11:49:18.828439+01:00] app.INFO: El usuario Admin General , con ID:1 ha iniciado sesion [] []

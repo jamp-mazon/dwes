@@ -7,7 +7,7 @@ if (!$_SESSION["logueado"]) {
     die;
 }
 else{
-    var_dump($_SESSION);
+    // var_dump($_SESSION);
     $nombre=$_SESSION["nombre"];
     $email=$_SESSION["email"];
     $id=$_SESSION["id"];
@@ -111,8 +111,9 @@ else{
                     
                     <?php if ($rol==="admin"): ?>
                     <td>
-                        <a class="btn-dark" href="resolver_incidencia.php?id=<?= $registroPDO->id ?>"><button>Resolver</button></a>
-                        <a class="btn-dark" href="ver_incidencia.php?id=<?= $registroPDO->id ?>"><button>Incidencia</button></a>
+                        <a href="resolver_incidencia.php?id=<?= $registroPDO->id ?>"><button class="resolver">Resolver</button></a>
+                        <br>
+                        <a href="ver_incidencia.php?id=<?= $registroPDO->id ?>"><button > Ver Incidencia</button></a>
                         
                     </td>
                     <?php endif; ?>   
