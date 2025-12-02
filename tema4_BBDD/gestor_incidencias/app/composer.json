@@ -1,19 +1,22 @@
 {
     "name": "josea/app",
     "type": "project",
-    "require": {
-        "monolog/monolog": "^3.9",
-        "mpdf/mpdf": "^8.2"
-    },
     "autoload": {
         "psr-4": {
-            "Josea\\App\\": "src/"
-        }
+            "App\\": "src/"
+        },
+        "files":[
+            "src/helpers/ayuda.php"
+        ]
     },
     "authors": [
         {
             "name": "Mazón",
             "email": "joseantoniomazonperez@gmail.com"
         }
-    ]
+    ],
+    "require": {
+        "monolog/monolog": "^3.9",
+        "mpdf/mpdf": "^8.2"
+    }
 }

@@ -1,0 +1,3 @@
+[2025-12-02T19:46:59.210279+01:00] app.ERROR: Error en la consulta:SQLSTATE[42S02]: Base table or view not found: 1146 Table 'gestorincidencias_db.usuarios' doesn't exist [] []
+[2025-12-02T19:47:19.253807+01:00] app.ERROR: Error en la consulta:SQLSTATE[42S02]: Base table or view not found: 1146 Table 'gestorincidencias_db.usuarios' doesn't exist [] []
+[2025-12-02T19:49:41.061015+01:00] app.INFO: Usuario admin@kk.com logueado correctamente [] []
