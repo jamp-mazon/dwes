@@ -1,0 +1,19 @@
+{
+    "name": "alumnosdaw/api",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        },
+        "files":[
+            "src/routes.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "jamp-mazon",
+            "email": "joseantoniomazonperez@gmail.com"
+        }
+    ],
+    "require": {}
+}
