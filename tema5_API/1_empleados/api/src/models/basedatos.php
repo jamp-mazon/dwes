@@ -79,25 +79,19 @@ class Basedatos{
                 return false;
             }
         }
-        public function actualizar_tarea(Tarea $tarea){
+        public function actualizar_empleado($id,$datos){
             //update empleado set completado =0 where id=12;
-            if ($tarea->completada) {
-                $tarea->setCompletada(false);
-                $sql="UPDATE tareas set completada = FALSE where id=:id";
-
-            }
-            else{
-                $tarea->setCompletada(true);
-                $sql="UPDATE tareas set completada = TRUE where id=:id";
-            }
-            // $sql="UPDATE tareas set completada :numero where id=:id";
+            $sql="UPDATE empleados SET nombre=:nombre,direccion=:direccion,salario=:salario WHERE id=:id";
             try {
                 $sentencia=$this->conexionPDO->prepare($sql);
-                $sentencia->bindParam(":id",$tarea->id);
+                $sentencia->bindParam(":id",$id);
+                $sentencia->bindParam(":nombre",$datos["nombre"]);
+                $sentencia->bindParam(":direccion",$datos["direccion"]);
+                $sentencia->bindParam(":salario",$datos["salario"]);
                 $sentencia->execute();
+                return true;
             } catch (PDOException $e) {
-                $this->log->error("Error al cambiar el booleano".$e->getMessage(),["booleano"=>"basedatos.php"]);
-
+                return false;
             }
         }
 }
