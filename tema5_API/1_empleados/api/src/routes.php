@@ -54,15 +54,48 @@ function manejarRequest($uri, $requestMethod, $param)
             }
             break;
 
-        // case 'POST':
+        case 'POST':
+                $data=json_decode(file_get_contents("php://input"),true);
+                //Añadir datos a la bbdd
+                if ($mibd->insertar_usuario($data)) {
+                    $respuesta=["mensaje"=>"Usuario Añadido"];
+                    http_response_code(201);
+                    echo json_encode($respuesta);
+                    exit();
+                }
+                else{
+                    $respuesta=["error"=>"El usuario no se ha podido añadir"];
 
-        //     break;
-        // case 'PUT':
+                    http_response_code(500);
+                    var_dump($data);
+                    echo json_encode($respuesta);
+                    exit();
+                }
 
-        //     break;
-        // case 'DELETE':
+             break;
+         case 'DELETE':
+             if ($userId!==null && $userId!=="") {
+                if ($mibd->borrar_empleados($userId)) {
+                    $respuesta=["mensaje"=>"Usuario con ID:$userId ha sido borrado con exito"];
+                    http_response_code(200);
+                    echo json_encode($respuesta);
+                    exit();
+                }
+                else{
+                    $respuesta=["error"=>"Usuario con ID:$userId no se ha podido borrar..."];
+                    http_response_code(500);
+                    echo json_encode($respuesta);
+                    exit();
+                }
+            }
+            else{
+                    $respuesta=["error"=>"ID invalido"];
+                    http_response_code(500);
+                    echo json_encode($respuesta);
+                    exit();                
+            } 
 
-        //     break;
+             break;
 
         default:
                 header("HTTP/1.1 400 BAD REQUEST ");

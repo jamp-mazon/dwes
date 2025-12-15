@@ -52,15 +52,31 @@ class Basedatos{
 
             }
         }
-
-        public function borrar_tarea(Tarea $tarea){
-            $sql="DELETE FROM tareas where id=:id";
+        public function insertar_usuario($datos){
+// INSERT INTO `empleados` (`nombre`, `direccion`, `salario`) VALUES
+// ('Roland Mendel', 'C/ Araquil, 67, Madrid', 5000),
+            $sql="INSERT INTO empleados (nombre,direccion,salario) VALUES (:nombre,:direccion,:salario)";
             try {
                 $sentencia=$this->conexionPDO->prepare($sql);
-                $sentencia->bindParam(":id",$tarea->id);
+                $sentencia->bindParam(":nombre",$datos["nombre"]);
+                $sentencia->bindParam(":direccion",$datos["direccion"]);
+                $sentencia->bindParam(":salario",$datos["salario"]);
                 $sentencia->execute();
+                return true;
             } catch (PDOException $e) {
-                $this->log->error("Error al borrar la tarea:".$e->getMessage(),["borrado"=>"basedatos.php"]);
+                return false;
+            }            
+        }
+
+        public function borrar_empleados($id){
+            $sql="DELETE FROM empleados where id=:id";
+            try {
+                $sentencia=$this->conexionPDO->prepare($sql);
+                $sentencia->bindParam(":id",$id);
+                $sentencia->execute();
+                return true;
+            } catch (PDOException $e) {
+                return false;
             }
         }
         public function actualizar_tarea(Tarea $tarea){
