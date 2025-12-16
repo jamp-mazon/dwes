@@ -94,6 +94,31 @@ class Basedatos{
                 return false;
             }
         }
+        public function actualizar_empleado_patch($id,$datos){
+            $campos=[];
+            $valores=[];
+            if (isset($datos["nombre"])) {
+                $campos[]="nombre=?";
+                $valores[]=$datos["nombre"];
+            }
+            if (isset($datos["direccion"])) {
+                $campos[]="direccion=?";
+                $valores[]=$datos["direccion"];
+            }
+            if (isset($datos["salario"])) {
+                $campos[]="salario=?";
+                $valores[]=$datos["salario"];
+            }
+            $valores[]=$id;
+            $sql="UPDATE empleados SET ". implode(",",$campos)."where id=?";
+            try {
+                $sentencia=$this->conexionPDO->prepare($sql);
+                $sentencia->execute($valores);
+                return true;
+            } catch (PDOException $e) {
+                return false;
+            }
+        }
 }
 
 ?>

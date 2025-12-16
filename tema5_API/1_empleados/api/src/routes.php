@@ -119,6 +119,29 @@ function manejarRequest($uri, $requestMethod, $param)
                     exit();                
             }             
             break;
+        case 'PATCH':
+                if ($userId!==null && $userId!=="") {
+                    $datos=json_decode(file_get_contents("php://input"),true);
+                    if ($mibd->actualizar_empleado_patch($userId,$datos)) {
+                        $respuesta=["mensaje"=>"Empleado con ID:$userId actualizado con exito"];
+                        http_response_code(200);
+                        echo json_encode($respuesta);
+                        exit();
+                    }
+                    else{
+                        $respuesta=["error"=>"Empleado con ID:$userId no se ha podido actualizar"];
+                        http_response_code(500);
+                        echo json_encode($respuesta);
+                        exit();
+                    }
+                }
+                else{
+                    $respuesta=["error"=>"ID invalido"];
+                    http_response_code(500);
+                    echo json_encode($respuesta);
+                    exit();                
+                }                 
+                break;
 
         default:
                 header("HTTP/1.1 400 BAD REQUEST ");
