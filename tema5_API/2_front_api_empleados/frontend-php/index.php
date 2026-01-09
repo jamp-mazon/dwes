@@ -65,6 +65,5 @@ if (isset($_GET['id']) && $_GET['id'] !== '') {
         <?php endif; ?>
     <?php endforeach; ?>
 </table>
-
 </body>
 </html>
