@@ -3,6 +3,7 @@ session_start();
 require __DIR__ . "/../vendor/autoload.php";
 use Api\models\Basededatos;
 use Api\models\api_key;
+use DateTimeImmutable;
 
 header("Access-Control-Allow-Origin: *");
 
@@ -29,9 +30,28 @@ if (!$key) {
 //Primero comprobamos si podemos conectarnos a la bbdd
 $mibd=new Basededatos();
 if ($mibd->estaConectado()) {
-    http_response_code(200);
-    echo json_encode(["mensaje"=>"Estas Conectado"]);
-    die;
+    $sql="SELECT * FROM api_keys WHERE key_hash=:key_hash";
+    $sentencia=$mibd->get_data($sql,["key_hash"=>hash("sha256",$key)]);
+    $registro=$sentencia->fetch(PDO::FETCH_ASSOC);
+    if (!$registro) {
+        http_response_code(403);
+        echo json_encode(["error"=>"Key incorrecta..."]);
+        die;
+    }
+    $apiKey=new api_key(
+        $registro["key_hash"],
+        $registro["rol"],
+        (bool)$registro["activa"],
+        new DateTimeImmutable($registro["creada_en"])
+    );
+    $ahora=new DateTimeImmutable();
+    if ($apiKey->estaCaducada($ahora)){
+        http_response_code(403);
+        echo json_encode(["error"=>"Key caducada o en desuso"]);
+        die;
+    }
+    // Ruteo de la API. $apiKey disponible para controladores.
+    require __DIR__ . "/../src/routes.php";
 }
 else{
     http_response_code(500);

@@ -2,7 +2,7 @@
 namespace Api\models;
 
 use DateInterval;
-use Monolog\DateTimeImmutable;
+use DateTimeImmutable;
 
 class api_key{
     private $key_hash;

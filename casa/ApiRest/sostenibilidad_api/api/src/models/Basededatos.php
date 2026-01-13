@@ -3,13 +3,14 @@ namespace Api\models;
 
 use PDO;
 use PDOException;
+use PDOStatement;
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 
 class Basededatos{
-    private $conexionPDO;
+    private PDO $conexionPDO;
     private Logger $log;    
-    private $conectado;
+    private bool $conectado;
     public function __construct()
     {
     // "dbMotor": "mysql",
@@ -39,10 +40,10 @@ class Basededatos{
             exit();
         }
     }
-    public function estaConectado(){
+    public function estaConectado(): bool{
         return $this->conectado;
     }
-    public function get_data($sql,array $param=[]){
+    public function get_data(string $sql,array $param=[]): PDOStatement{
         
         try {
             $sentencia=$this->conexionPDO->prepare($sql);
