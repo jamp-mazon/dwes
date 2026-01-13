@@ -43,15 +43,32 @@ switch ($partes[6]) {
                     http_response_code(200);
                     echo json_encode(["mensaje"=>"medicion guardada con exito"]);
                     die;
-                    
-  
-                
+                    break;
+
                 default:
                     http_response_code(404);
                     $mensaje=["error"=>"No existe dicho Endpoint"];
                     echo json_encode($mensaje);
                     die;
                     break;
+            }
+        }
+        else{
+            if (!is_numeric($id)) {
+                http_response_code(403);
+                $mensaje=["error"=>"El mensaje tiene que ser numerico"];
+                echo json_encode($mensaje);
+            }
+            else{
+                switch ($requestMethod) {
+                    case 'value':
+                        # code...
+                        break;
+                    
+                    default:
+                        # code...
+                        break;
+                }
             }
         }
         break;
