@@ -20,9 +20,9 @@ $requestMethod=$_SERVER["REQUEST_METHOD"];
 //recoger las cabeceras
 $headers=apache_request_headers();// un alias: getHeaders()
 //===================DEPURACION DE URI , HEADERS Y PARAMS====================================
-print("uri\n");
-print_r($uri);
-print("\n");
+// print("uri\n");
+// print_r($uri);
+// print("\n");
 // print ("headers\n");
 // print_r($headers);
 // print("\n");
@@ -55,19 +55,73 @@ if ($partes[4]!=="api" || $partes[5]!=="libros") {
     echo json_encode($respuesta);
     exit();
 }
-$titulo=$partes[6]??null;
+$titulo=urldecode($partes[6])??null;//urldecode te permite tener respuesta con espacios. sin que salga el %20
 
 switch ($requestMethod) {
     case 'GET':
-        //endpoint GET /api/libros/titulo
-
-        
+        //endpoint GET /api/libros/
+        if (is_null($titulo)) {
+            $libros=obtener_libros();
+            http_response_code(200);
+            echo json_encode($libros);
+            die;
+        }
+        else{
+            // endpoint get /api/libros/titulo
+            $libro=obtener_libro_titulo($titulo);
+            http_response_code(201);
+            echo json_encode($libro);
+            die;
+        }
         break;
+    case "POST":
+        if ($rol==="ADMIN") {
+            //endpoint post /api/libros
+            $datos=json_decode(file_get_contents("php://input"),true);
+            if (insertarLibro($datos)) {
+                http_response_code(201);
+                echo json_encode(["mensaje"=>"Libro insertado con exito"]);
+                exit();
+            }
+            else{
+                http_response_code(400);
+                echo json_encode(["error"=>"Fallo al insertar el libro"]);
+                exit();
+            }
+        }
+        else{
+            http_response_code(401);
+            $mensaje=["error"=>"No tiene privilegios..."];
+            echo json_encode($mensaje);
+            die;
+        }
+    case "DELETE":
+        if ($rol==="ADMIN") {
+            $datos= json_decode(file_get_contents("php://input"),true);
+            if (eliminarLibro($datos)) {
+                http_response_code(201);
+                $mensaje=["mensaje"=>"Libro borrado con exito"];
+                echo json_encode($mensaje);
+                die;
+            }
+            else{
+                http_response_code(500);
+                $mensaje=["error"=>"No se pudo eliminar el libro"];
+                echo json_encode($mensaje);
+                die;
+            }
+        } 
+        else{
+            http_response_code(401);
+            $mensaje=["error"=>"No tienes privilegios"];
+            echo json_encode($mensaje);
+            die;
+        }
     
     default:
         # code...
         break;
-}i
+}
 
 
 
@@ -107,4 +161,3 @@ switch ($requestMethod) {
 //         "mensaje" => "API Key válida"
 //     ]);
 //     exit;
-// }
