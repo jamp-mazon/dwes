@@ -61,7 +61,7 @@ switch ($partes[6]) {
             }
             else{
                 switch ($requestMethod) {
-                    case 'value':
+                    case '':
                         # code...
                         break;
                     
