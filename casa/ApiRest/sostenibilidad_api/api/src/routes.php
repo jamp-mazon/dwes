@@ -62,11 +62,31 @@ switch ($partes[6]) {
             else{
                 switch ($requestMethod) {
                     case 'GET':
-                        
+                        $sql="SELECT * FROM mediciones where id=:id";
+                        $sentencia=$mibd->get_data($sql,[":id"=>$id]);
+                        $registro=$sentencia->fetch(PDO::FETCH_ASSOC);
+                        http_response_code(200);
+                        echo json_encode($registro);
+                        die;
                         break;
-                    
+                    case "DELETE":
+                        if ($apiKey->getRol()==="admin") {
+                            $sql="DELETE FROM mediciones where id=:id";
+                            $mibd->get_data($sql,[":id"=>$id]);
+                            http_response_code(200);
+                            echo json_encode(["mensaje"=>"Medicion eliminada con exito"]);
+                            die;    
+                        }
+                        else{
+                            http_response_code(403);
+                            echo json_encode(["error"=>"No tienes privilegios..."]);
+                            die;
+                        }
+                        
                     default:
-                        # code...
+                        http_response_code(404);
+                        echo json_encode(["error"=>"No existe dicho endpoint..."]);
+                        die;
                         break;
                 }
             }

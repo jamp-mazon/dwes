@@ -25,7 +25,7 @@ class Basededatos{
         $dbHost="127.0.0.1";
         $user="root";
         $pass="";
-        $name_database="sostenibilidad_api";
+        $name_database="sostenibilidad_apii";
 
         $dsn="$dbMotor:host=$dbHost;dbname=$name_database;charset=utf8mb4";
 
