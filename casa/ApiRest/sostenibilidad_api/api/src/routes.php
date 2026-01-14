@@ -61,8 +61,8 @@ switch ($partes[6]) {
             }
             else{
                 switch ($requestMethod) {
-                    case '':
-                        # code...
+                    case 'GET':
+                        
                         break;
                     
                     default:
