@@ -1,0 +1,9 @@
+Options -Indexes
+RewriteEngine On
+RewriteBase /dwes/casa/ApiRest/helpdesk_api/api/
+
+# Redirige todo a public/ para que el front controller maneje las peticiones
+RewriteRule ^$ public/index.php [L]
+# Si ya viene con public/, no reescribas para evitar bucles
+RewriteRule ^public/ - [L]
+RewriteRule ^(.*)$ public/$1 [L]

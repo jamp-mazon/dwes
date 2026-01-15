@@ -1,0 +1,21 @@
+{
+    "name": "mazon/api",
+    "type": "project",
+    "require": {
+        "monolog/monolog": "^3.10"
+    },
+    "autoload": {
+        "psr-4": {
+            "Api\\": "src/"
+        },
+        "files":[
+            "src/helpers/funciones.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "jamp-mazon",
+            "email": "joseantoniomazonperez@gmail.com"
+        }
+    ]
+}
