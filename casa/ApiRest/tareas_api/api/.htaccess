@@ -1,0 +1,7 @@
+RewriteEngine On
+
+#RewriteBase: ruta local
+RewriteBase /dwes/casa/ApiRest/tareas_api/api
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.+)$ index.php [QSA,L]
