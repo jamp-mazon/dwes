@@ -1,0 +1,7 @@
+[2026-01-19T13:11:09.682963+01:00] error.INFO: El rol da false con lo cual la key es invalida [] []
+[2026-01-19T13:28:03.120635+01:00] error.INFO: No se encontro el registro [] []
+[2026-01-19T13:28:27.324675+01:00] error.INFO: No se encontro el registro al obtenerPorTitulo [] []
+[2026-01-19T13:28:41.025825+01:00] error.INFO: No se encontro el registro al obtenerPorTitulo [] []
+[2026-01-19T13:29:03.632870+01:00] error.INFO: No se encontro el registro al obtenerPorTitulo [] []
+[2026-01-19T13:29:22.002890+01:00] error.INFO: No se encontro el registro al obtenerPorTitulo [] []
+[2026-01-19T13:58:45.759988+01:00] error.INFO: usuario:No tiene permisos para hacer post [] []
