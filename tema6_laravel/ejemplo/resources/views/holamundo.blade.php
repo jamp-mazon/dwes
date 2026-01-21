@@ -13,6 +13,8 @@
         <li>
             <a href="{{route('curriculum')}}">Mi curriculum</a>
         </li>
+        <li> Hola: {{ $nombre }} {{$Apellidos}} || Lugar: {{$localidad}}</li>
+
     </ul>
 </body>
 </html>
