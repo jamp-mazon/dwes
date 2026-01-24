@@ -1,0 +1,6 @@
+[2025-11-16T19:09:57.567586+01:00] app.ERROR: Error al crear el usuario en la bbdd:SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens {"crear_usuario":"basedatos.php"} []
+[2025-11-16T19:10:14.893819+01:00] app.ERROR: Error al crear el usuario en la bbdd:SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens {"crear_usuario":"basedatos.php"} []
+[2025-11-16T19:39:05.825653+01:00] app.ERROR: Error al crear el usuario en la bbdd:SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens {"crear_usuario":"basedatos.php"} []
+[2025-11-16T19:41:00.440497+01:00] app.ERROR: Error al crear el usuario en la bbdd:SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens {"crear_usuario":"basedatos.php"} []
+[2025-11-16T19:42:12.802127+01:00] app.ERROR: Error al crear el usuario en la bbdd:SQLSTATE[42S22]: Column not found: 1054 Unknown column 'password' in 'field list' {"crear_usuario":"basedatos.php"} []
+[2025-11-16T22:04:15.504296+01:00] app.ERROR: El registro esta vacio o no devuelve resultados {"registro-PDO":"procesar-login.php"} []
