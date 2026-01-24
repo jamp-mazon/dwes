@@ -1,7 +1,7 @@
 <?php 
 session_start();
-require __DIR__."/../vendor/autoload.php";
-use App\models\Basedatos;
+require __DIR__ . "/../vendor/autoload.php";
+use App\Models\Basedatos;
 
 
 ?>

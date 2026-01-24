@@ -1,6 +1,6 @@
 <?php
-namespace App\models;
-require __DIR__. "/../../vendor/autoload.php";
+namespace App\Models;
+require __DIR__ . "/../../vendor/autoload.php";
 
 class Usuarios{
     private int|null $id;

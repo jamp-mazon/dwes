@@ -1,11 +1,13 @@
 <?php 
-namespace App\models;
-require __DIR__. "/../../vendor/autoload.php";
+namespace App\Models;
+require __DIR__ . "/../../vendor/autoload.php";
 use PDO;
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 use PDOException;
-use App\models\Usuarios;
+use App\Models\Usuarios;
+use App\Models\Clientes;
+use App\Models\Paquetes;
 
 class Basedatos{
     private PDO|null $conexionPDO;
@@ -72,15 +74,68 @@ class Basedatos{
         VALUES (:nombre, :email, :password_hash, :rol)";
         try {
             $sentencia=$this->conexionPDO->prepare($sql);
-            $sentencia->bindParam(":nombre",$user->getNombre());
-            $sentencia->bindParam(":email",$user->getEmail());
-            $sentencia->bindParam(":password_hash",$user->getPassword());
-            $sentencia->bindParam(":rol",$user->getRol());
+            $sentencia->bindValue(":nombre",$user->getNombre());
+            $sentencia->bindValue(":email",$user->getEmail());
+            $sentencia->bindValue(":password_hash",$user->getPassword());
+            $sentencia->bindValue(":rol",$user->getRol());
             $sentencia->execute();
             return true;            
         } catch (PDOException $e) {
             $this->log->error("Error al crear el usuario en la bbdd:".$e->getMessage(),["crear_usuario"=>"basedatos.php"]);
             return false;
+        }
+    }
+
+    public function crear_cliente(Clientes $cliente): ?int
+    {
+        $sql = "INSERT INTO clientes (nombre, telefono, direccion, ciudad, cp)
+                VALUES (:nombre, :telefono, :direccion, :ciudad, :cp)";
+        try {
+            $sentencia = $this->conexionPDO->prepare($sql);
+            $sentencia->bindValue(":nombre", $cliente->getNombre());
+            $sentencia->bindValue(":telefono", $cliente->getTelefono());
+            $sentencia->bindValue(":direccion", $cliente->getDireccion());
+            $sentencia->bindValue(":ciudad", $cliente->getCiudad());
+            $sentencia->bindValue(":cp", $cliente->getCp());
+            $sentencia->execute();
+            $idInsertado = (int) $this->conexionPDO->lastInsertId();
+            $cliente->setId($idInsertado);
+            return $idInsertado;
+        } catch (PDOException $e) {
+            $this->log->error("Error al crear el cliente en la bbdd:".$e->getMessage(),["crear_cliente"=>"basedatos.php"]);
+            return null;
+        }
+    }
+
+    public function obtener_clientes(): array
+    {
+        $sql = "SELECT * FROM clientes";
+        try {
+            $sentencia = $this->conexionPDO->query($sql);
+            return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            $this->log->error("Error al obtener clientes:".$e->getMessage(),["obtener_clientes"=>"basedatos.php"]);
+            return [];
+        }
+    }
+
+    public function crear_paquete(Paquetes $paquete): ?int
+    {
+        $sql = "INSERT INTO paquetes (id_cliente, descripcion, fecha_creacion, estado, notas)
+                VALUES (:id_cliente, :descripcion, :fecha_creacion, :estado, :notas)";
+        try {
+            $sentencia = $this->conexionPDO->prepare($sql);
+            $sentencia->bindValue(":id_cliente", $paquete->getIdCliente(), PDO::PARAM_INT);
+            $sentencia->bindValue(":descripcion", $paquete->getDescripcion());
+            $sentencia->bindValue(":fecha_creacion", $paquete->getFechaCreacion());
+            $sentencia->bindValue(":estado", $paquete->getEstado());
+            $sentencia->bindValue(":notas", $paquete->getNotas());
+            $sentencia->execute();
+            $idInsertado = (int) $this->conexionPDO->lastInsertId();
+            return $idInsertado;
+        } catch (PDOException $e) {
+            $this->log->error("Error al crear el paquete en la bbdd:".$e->getMessage(),["crear_paquete"=>"basedatos.php"]);
+            return null;
         }
     }
 

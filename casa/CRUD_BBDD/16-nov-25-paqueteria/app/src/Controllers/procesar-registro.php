@@ -1,7 +1,7 @@
 <?php 
-require __DIR__."/../../vendor/autoload.php";
-use App\models\Basedatos;
-use App\models\Usuarios;
+require __DIR__ . "/../../vendor/autoload.php";
+use App\Models\Basedatos;
+use App\Models\Usuarios;
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"]!="POST") {
@@ -81,5 +81,4 @@ else{
 }
 
 ?>
-
 
