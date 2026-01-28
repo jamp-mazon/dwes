@@ -70,5 +70,18 @@ use App\Http\Controllers\LibroController;
 // })->name("altalibros");
 
 //========= RUTAS DE LIBROS
+Route::get('/', function(){
+    return view('home');
+})->name('home');
+
+
+Route::get('/about', function(){
+    return view('about');
+})->name('about');
+
 Route::get('/libros', [LibroController::class, 'listar_libros'])->name('listado');
+Route::get("/libros/alta",[LibroController::class, "alta_libro"])->name("altalibro");
+Route::post("/libros",[LibroController::class,"store"])->name("storelibros");
+
 Route::get('/libros/{id}', [LibroController::class, 'mostrar_libro']); //-> where('id', '[0-9]+');
+

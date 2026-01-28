@@ -16,22 +16,26 @@ class LibroController extends Controller
                                     "libros" => $libros]);
 
     }
-    // Listar libros
-    public function index()
+    //Mostrar el formulario de alta
+    public function alta_libro(){
+        return view("libros.alta");
+    }
+        public function store(Request $request)
     {
-        return "Listado de libros";
+        $request->validate([
+            'titulo' => 'required|string|max:255',
+            'autor' => 'required|string|max:255',
+            'genero' => 'required|string',
+            'anio'   => 'required|integer|min:1500|max:' . date('Y'),
+            'descripcion' => 'nullable|string',
+        ]);
+
+        Libro::create($request->all());
+
+        return redirect()->route('listado')
+                         ->with('success', 'Libro creado correctamente');
     }
 
-    // Mostrar formulario de creación
-    public function create()
-    {
-        return "Formulario para crear libro";
-    }
 
-    // Mostrar un libro concreto
-    public function show($id)
-    {
-        return "Mostrando el libro con ID: " . $id;
-    }
 
 }
